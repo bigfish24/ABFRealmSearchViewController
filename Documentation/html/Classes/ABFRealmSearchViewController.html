@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>ABFRealmSearchViewController Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">ABFRealmSearchViewController </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Realm</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/basePredicate">basePredicate</option>
+		
+		<option value="//api/name/caseInsensitiveSearch">caseInsensitiveSearch</option>
+		
+		<option value="//api/name/entityName">entityName</option>
+		
+		<option value="//api/name/realm">realm</option>
+		
+		<option value="//api/name/resultsDataSource">resultsDataSource</option>
+		
+		<option value="//api/name/resultsDelegate">resultsDelegate</option>
+		
+		<option value="//api/name/searchBar">searchBar</option>
+		
+		<option value="//api/name/searchBarInTableView">searchBarInTableView</option>
+		
+		<option value="//api/name/searchPropertyKeyPath">searchPropertyKeyPath</option>
+		
+		<option value="//api/name/sortAscending">sortAscending</option>
+		
+		<option value="//api/name/sortPropertyKey">sortPropertyKey</option>
+		
+		<option value="//api/name/useContainsSearch">useContainsSearch</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/new">+ new</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/init">- init</option>
+		
+		<option value="//api/name/initWithCoder:">- initWithCoder:</option>
+		
+		<option value="//api/name/initWithEntityName:inRealm:searchPropertyKeyPath:">- initWithEntityName:inRealm:searchPropertyKeyPath:</option>
+		
+		<option value="//api/name/initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:">- initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:</option>
+		
+		<option value="//api/name/initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:tableViewStyle:">- initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:tableViewStyle:</option>
+		
+		<option value="//api/name/initWithEntityName:searchPropertyKeyPath:">- initWithEntityName:searchPropertyKeyPath:</option>
+		
+		<option value="//api/name/initWithEntityName:searchPropertyKeyPath:basePredicate:">- initWithEntityName:searchPropertyKeyPath:basePredicate:</option>
+		
+		<option value="//api/name/initWithNibName:bundle:">- initWithNibName:bundle:</option>
+		
+		<option value="//api/name/initWithStyle:">- initWithStyle:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">ABFRealmSearchViewController Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>UITableViewController</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td><a href="../Protocols/ABFRealmSearchResultsDataSource.html">ABFRealmSearchResultsDataSource</a><br /><a href="../Protocols/ABFRealmSearchResultsDelegate.html">ABFRealmSearchResultsDelegate</a></td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>ABFRealmSearchViewController.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The ABFRealmSearchViewController class creates a controller object that inherits UITableViewController and manages the table view within it to support and display text searching against a Realm object.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/resultsDataSource" title="resultsDataSource"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resultsDataSource">&nbsp;&nbsp;resultsDataSource</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The data source object for the search view controller</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;ABFRealmSearchResultsDataSource&gt; resultsDataSource</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The data source object for the search view controller</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/resultsDelegate" title="resultsDelegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resultsDelegate">&nbsp;&nbsp;resultsDelegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The delegate for the search view controller</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;ABFRealmSearchResultsDelegate&gt; resultsDelegate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The delegate for the search view controller</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/entityName" title="entityName"></a>
+	<h3 class="method-title"><code><a href="#//api/name/entityName">&nbsp;&nbsp;entityName</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The entity (Realm object) name</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *entityName</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The entity (Realm object) name</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/realm" title="realm"></a>
+	<h3 class="method-title"><code><a href="#//api/name/realm">&nbsp;&nbsp;realm</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The Realm in which the given entity is being searched against in</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) RLMRealm *realm</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The Realm in which the given entity is being searched against in</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/searchBar" title="searchBar"></a>
+	<h3 class="method-title"><code><a href="#//api/name/searchBar">&nbsp;&nbsp;searchBar</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The search bar for the controller</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) UISearchBar *searchBar</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The search bar for the controller</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/searchPropertyKeyPath" title="searchPropertyKeyPath"></a>
+	<h3 class="method-title"><code><a href="#//api/name/searchPropertyKeyPath">&nbsp;&nbsp;searchPropertyKeyPath</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The keyPath on the entity that will be searched against.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *searchPropertyKeyPath</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The keyPath on the entity that will be searched against.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/basePredicate" title="basePredicate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/basePredicate">&nbsp;&nbsp;basePredicate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The base predicate, used when the search bar text is blank. Can be nil.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSPredicate *basePredicate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The base predicate, used when the search bar text is blank. Can be nil.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sortPropertyKey" title="sortPropertyKey"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sortPropertyKey">&nbsp;&nbsp;sortPropertyKey</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The key to sort the results on.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *sortPropertyKey</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The key to sort the results on.</p>
+
+<p>By default this uses <a href="#//api/name/searchPropertyKeyPath">searchPropertyKeyPath</a> if it is just a key.
+Realm currently doesn&rsquo;t support sorting by key path.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sortAscending" title="sortAscending"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sortAscending">&nbsp;&nbsp;sortAscending</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Defines whether the search results are sorted ascending</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL sortAscending</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Defines whether the search results are sorted ascending</p>
+
+<p>Default is YES</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/searchBarInTableView" title="searchBarInTableView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/searchBarInTableView">&nbsp;&nbsp;searchBarInTableView</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Defines whether the search bar is inserted into the table view header</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL searchBarInTableView</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Defines whether the search bar is inserted into the table view header</p>
+
+<p>Default is YES</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/caseInsensitiveSearch" title="caseInsensitiveSearch"></a>
+	<h3 class="method-title"><code><a href="#//api/name/caseInsensitiveSearch">&nbsp;&nbsp;caseInsensitiveSearch</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Defines whether the text search is case insensitive</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL caseInsensitiveSearch</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Defines whether the text search is case insensitive</p>
+
+<p>Default is YES</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/useContainsSearch" title="useContainsSearch"></a>
+	<h3 class="method-title"><code><a href="#//api/name/useContainsSearch">&nbsp;&nbsp;useContainsSearch</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Defines whether the text input uses a CONTAINS filter or just BEGINSWITH.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL useContainsSearch</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Defines whether the text input uses a CONTAINS filter or just BEGINSWITH.</p>
+
+<p>Default is NO</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithEntityName:searchPropertyKeyPath:" title="initWithEntityName:searchPropertyKeyPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithEntityName:searchPropertyKeyPath:">&ndash;&nbsp;initWithEntityName:searchPropertyKeyPath:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in the default Realm</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithEntityName:(NSString *)<em>entityName</em> searchPropertyKeyPath:(NSString *)<em>keyPath</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>entityName</code></th>
+						<td><p>RLMObject subclass name defined in default Realm</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keyPath</code></th>
+						<td><p>keyPath on the RLMObject entity that will be searched against</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>instance of ABFRealmSearchViewController</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in the default Realm</p>
+
+<p>Defaults to UITableViewStylePlain
+To alter use: initWithEntityName:inRealm:searchPropertyKeyPath:initialPredicate:tableViewStyle:)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithEntityName:inRealm:searchPropertyKeyPath:" title="initWithEntityName:inRealm:searchPropertyKeyPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithEntityName:inRealm:searchPropertyKeyPath:">&ndash;&nbsp;initWithEntityName:inRealm:searchPropertyKeyPath:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithEntityName:(NSString *)<em>entityName</em> inRealm:(RLMRealm *)<em>realm</em> searchPropertyKeyPath:(NSString *)<em>keyPath</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>entityName</code></th>
+						<td><p>RLMObject subclass name defined in default Realm</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>realm</code></th>
+						<td><p>the Realm in whic hthe entity will be searched against (in-memory Realms are not supported)</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keyPath</code></th>
+						<td><p>keyPath on the RLMObject entity that will be searched against</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>instance of ABFRealmSearchViewController</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm</p>
+
+<p>Defaults to UITableViewStylePlain
+To alter use: initWithEntityName:inRealm:searchPropertyKeyPath:initialPredicate:tableViewStyle:)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithEntityName:searchPropertyKeyPath:basePredicate:" title="initWithEntityName:searchPropertyKeyPath:basePredicate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithEntityName:searchPropertyKeyPath:basePredicate:">&ndash;&nbsp;initWithEntityName:searchPropertyKeyPath:basePredicate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in the default Realm</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithEntityName:(NSString *)<em>entityName</em> searchPropertyKeyPath:(NSString *)<em>keyPath</em> basePredicate:(NSPredicate *)<em>basePredicate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>entityName</code></th>
+						<td><p>RLMObject subclass name defined in defaultRealm</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keyPath</code></th>
+						<td><p>keyPath on the RLMObject entity that will be searched against</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>basePredicate</code></th>
+						<td><p>NSPredicate for the RLMObject for use when search bar is blank</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>instance of ABFRealmSearchViewController</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in the default Realm</p>
+
+<p>Defaults to UITableViewStylePlain
+To alter use: initWithEntityName:inRealm:searchPropertyKeyPath:initialPredicate:tableViewStyle:)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:" title="initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:">&ndash;&nbsp;initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithEntityName:(NSString *)<em>entityName</em> inRealm:(RLMRealm *)<em>realm</em> searchPropertyKeyPath:(NSString *)<em>keyPath</em> basePredicate:(NSPredicate *)<em>basePredicate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>entityName</code></th>
+						<td><p>RLMObject subclass name</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>realm</code></th>
+						<td><p>the Realm in whic hthe entity will be searched against (in-memory Realms are not supported)</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keyPath</code></th>
+						<td><p>keyPath on the RLMObject entity that will be searched against</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>basePredicate</code></th>
+						<td><p>NSPredicate for the RLMObject for use when search bar is blank</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>instance of ABFRealmSearchViewController</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm</p>
+
+<p>Defaults to UITableViewStylePlain
+To alter use: initWithEntityName:inRealm:searchPropertyKeyPath:initialPredicate:tableViewStyle:)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:tableViewStyle:" title="initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:tableViewStyle:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:tableViewStyle:">&ndash;&nbsp;initWithEntityName:inRealm:searchPropertyKeyPath:basePredicate:tableViewStyle:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithEntityName:(NSString *)<em>entityName</em> inRealm:(RLMRealm *)<em>realm</em> searchPropertyKeyPath:(NSString *)<em>keyPath</em> basePredicate:(NSPredicate *)<em>basePredicate</em> tableViewStyle:(UITableViewStyle)<em>style</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>entityName</code></th>
+						<td><p>RLMObject subclass name</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>realm</code></th>
+						<td><p>the Realm in whic hthe entity will be searched against (in-memory Realms are not supported)</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keyPath</code></th>
+						<td><p>keyPath on the RLMObject entity that will be searched against</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>basePredicate</code></th>
+						<td><p>NSPredicate for the RLMObject for use when search bar is blank</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>style</code></th>
+						<td><p>the UITableView style for the search results</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>instance of ABFRealmSearchViewController</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Unavailable Methods" name="task_Unavailable Methods"></a>
+						<h2 class="task-title">Unavailable Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="method-title"><code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ABFRealmSearchViewController cannot be created without at least specifying the entity name</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)init</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>not available</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>ABFRealmSearchViewController cannot be created without at least specifying the entity name</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithCoder:" title="initWithCoder:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithCoder:">&ndash;&nbsp;initWithCoder:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ABFRealmSearchViewController cannot be created using interface builder or storyboards.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithCoder:(NSCoder *)<em>aDecoder</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>aDecoder</code></th>
+						<td><p>not available</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>not available</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>ABFRealmSearchViewController cannot be created using interface builder or storyboards.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithStyle:" title="initWithStyle:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithStyle:">&ndash;&nbsp;initWithStyle:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ABFRealmSearchViewController cannot be created using UITableViewController initializers</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithStyle:(UITableViewStyle)<em>style</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>style</code></th>
+						<td><p>not available</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>not available</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>ABFRealmSearchViewController cannot be created using UITableViewController initializers</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithNibName:bundle:" title="initWithNibName:bundle:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithNibName:bundle:">&ndash;&nbsp;initWithNibName:bundle:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ABFRealmSearchViewController cannot be created using UITableViewController initializers</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithNibName:(NSString *)<em>nibNameOrNil</em> bundle:(NSBundle *)<em>nibBundleOrNil</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>nibNameOrNil</code></th>
+						<td><p>not available</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>nibBundleOrNil</code></th>
+						<td><p>not available</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>not available</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>ABFRealmSearchViewController cannot be created using UITableViewController initializers</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/new" title="new"></a>
+	<h3 class="method-title"><code><a href="#//api/name/new">+&nbsp;new</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ABFRealmSearchViewController cannot be created without at least specifying the entity name</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)new</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>not available</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>ABFRealmSearchViewController cannot be created without at least specifying the entity name</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ABFRealmSearchViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 Realm. All rights reserved. Updated: 2015-06-03</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

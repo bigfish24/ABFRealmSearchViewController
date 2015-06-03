@@ -20,6 +20,7 @@
  *
  *  @param searchViewController the search view controller instance
  *  @param anObject             the object to be displayed by the cell
+ *  @param indexPath            the indexPath that the object resides at
  *
  *  @return instance of UITableViewCell that displays the object information
  */

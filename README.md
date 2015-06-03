@@ -9,7 +9,7 @@ The class performs the text search on a background thread (via [RBQFetchedResult
 The controller is meant to be subclassed. By default the `resultsDataSource` and `resultsDelegate` protocols are set as `self`, so that the subclass can implement these methods.
 
 ####Documentation
-[Click Here](https://raw.githubusercontent.com/bigfish24/ABFRealmSearchViewController/master/Documentation/html/index.html)
+[Click Here](http://htmlpreview.github.io/?https://raw.githubusercontent.com/bigfish24/ABFRealmSearchViewController/master/Documentation/html/index.html)
 
 ####Installation
 `ABFRealmSearchViewController` is available through [CocoaPods](http://cocoapods.org). To install

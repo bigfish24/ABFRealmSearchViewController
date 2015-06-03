@@ -221,7 +221,7 @@
  *
  *  @return not available
  */
-- (instancetype)init __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:initialPredicate:")));
+- (instancetype)init __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:basePredicate:")));
 
 /**
  *  ABFRealmSearchViewController cannot be created using interface builder or storyboards.
@@ -230,7 +230,7 @@
  *
  *  @return not available
  */
-- (instancetype)initWithCoder:(NSCoder *)aDecoder __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:initialPredicate:")));
+- (instancetype)initWithCoder:(NSCoder *)aDecoder __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:basePredicate:")));
 
 /**
  *  ABFRealmSearchViewController cannot be created using UITableViewController initializers
@@ -239,7 +239,7 @@
  *
  *  @return not available
  */
-- (instancetype)initWithStyle:(UITableViewStyle)style __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:initialPredicate:")));
+- (instancetype)initWithStyle:(UITableViewStyle)style __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:basePredicate:")));
 
 /**
  *  ABFRealmSearchViewController cannot be created using UITableViewController initializers
@@ -249,13 +249,13 @@
  *
  *  @return not available
  */
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:initialPredicate:")));
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:basePredicate:")));
 
 /**
  *  ABFRealmSearchViewController cannot be created without at least specifying the entity name
  *
  *  @return not available
  */
-+ (instancetype)new __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:initialPredicate:")));
++ (instancetype)new __attribute__((unavailable("Use initWithEntityName:searchPropertyKeyPath: or initWithEntityName:searchPropertyKeyPath:basePredicate:")));
 
 @end

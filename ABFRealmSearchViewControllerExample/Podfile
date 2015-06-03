@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '8.0'
+
+target 'ABFRealmSearchViewControllerExample' do
+  pod 'Realm'
+  pod 'RBQFetchedResultsController'
+  pod 'RealmSFRestaurantData'
+end
+
+target 'ABFRealmSearchViewControllerExampleTests' do
+  pod 'Realm/Headers'
+end
+

@@ -8,6 +8,9 @@ The class performs the text search on a background thread (via [RBQFetchedResult
 
 The controller is meant to be subclassed. By default the `resultsDataSource` and `resultsDelegate` protocols are set as `self`, so that the subclass can implement these methods.
 
+####Documentation
+[Click Here](http://htmlpreview.github.io/?https://raw.githubusercontent.com/bigfish24/ABFRealmSearchViewController/master/Documentation/html/index.html)
+
 ####Installation
 `ABFRealmSearchViewController` is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -15,7 +18,7 @@ it, simply add the following line to your Podfile:
 pod "ABFRealmSearchViewController"
 ```
 ####Screenshots
-The demo app uses [RealmSFRestaurantData](https://github.com/bigfish24/RealmSFRestaurantData) to search through restaurant scores.
+The demo app uses [RealmSFRestaurantData](https://github.com/bigfish24/RealmSFRestaurantData) to search through restaurants in San Francisco.
 
 ![SF Restaurant Search View](/screenshots/restaurantSearch0.png?raw=true "SF Restaurant Search View")
 ![SF Restaurant Search With Text View](/screenshots/restaurantSearch1.png?raw=true "SF Restaurant Search With Text View")

@@ -151,7 +151,7 @@
  *  To alter use: initWithEntityName:inRealm:searchPropertyKeyPath:initialPredicate:tableViewStyle:)
  *
  *  @param entityName RLMObject subclass name defined in default Realm
- *  @param realm      the Realm in whic hthe entity will be searched against (in-memory Realms are not supported)
+ *  @param realm      the Realm in which the entity will be searched against (in-memory Realms are not supported)
  *  @param keyPath    keyPath on the RLMObject entity that will be searched against
  *
  *  @return instance of ABFRealmSearchViewController
@@ -183,7 +183,7 @@
  *  To alter use: initWithEntityName:inRealm:searchPropertyKeyPath:initialPredicate:tableViewStyle:)
  *
  *  @param entityName       RLMObject subclass name
- *  @param realm            the Realm in whic hthe entity will be searched against (in-memory Realms are not supported)
+ *  @param realm            the Realm in which the entity will be searched against (in-memory Realms are not supported)
  *  @param keyPath          keyPath on the RLMObject entity that will be searched against
  *  @param basePredicate    NSPredicate for the RLMObject for use when search bar is blank
  *
@@ -198,7 +198,7 @@
  *  Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm
  *
  *  @param entityName       RLMObject subclass name
- *  @param realm            the Realm in whic hthe entity will be searched against (in-memory Realms are not supported)
+ *  @param realm            the Realm in which the entity will be searched against (in-memory Realms are not supported)
  *  @param keyPath          keyPath on the RLMObject entity that will be searched against
  *  @param basePredicate    NSPredicate for the RLMObject for use when search bar is blank
  *  @param style            the UITableView style for the search results

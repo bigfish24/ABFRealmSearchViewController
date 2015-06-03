@@ -14,6 +14,11 @@ it, simply add the following line to your Podfile:
 ```
 pod "ABFRealmSearchViewController"
 ```
+####Screenshots
+The demo app uses [RealmSFRestaurantData](https://github.com/bigfish24/RealmSFRestaurantData) to search through restaurant scores.
+
+![SF Restaurant Search View](/screenshots/restaurantSearch0.png?raw=true "SF Restaurant Search View")
+![SF Restaurant Search With Text View](/screenshots/restaurantSearch1.png?raw=true "SF Restaurant Search With Text View")
 ####Demo
 
 Build and run/test the Example project in Xcode to see `ABFRealmSearchViewController` in action. This project uses CocoaPods. If you don't have [CocoaPods](http://cocoapods.org/) installed, grab it with [sudo] gem install cocoapods.
@@ -29,6 +34,7 @@ Cocoapods has a [reported issue](https://github.com/CocoaPods/CocoaPods/issues/3
 ```
 chmod 644 Pods/RealmSFRestaurantData/SFRestaurantScores.realm
 ```
+_If you already ran the app before applying the fix, make sure to delete the app and re-run to force the fixed Realm file to be included in the bundle._
 
 #####Requirements
 

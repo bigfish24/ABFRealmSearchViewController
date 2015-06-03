@@ -34,6 +34,7 @@ Cocoapods has a [reported issue](https://github.com/CocoaPods/CocoaPods/issues/3
 ```
 chmod 644 Pods/RealmSFRestaurantData/SFRestaurantScores.realm
 ```
+_If you already ran the app before applying the fix, make sure to delete the app and re-run to force the fixed Realm file to be included in the bundle._
 
 #####Requirements
 

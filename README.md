@@ -32,13 +32,6 @@ cd ABFRealmSearchViewController/ABFRealmSearchViewControllerExample
 pod install
 open ABFRealmSearchViewController.xcworkspace
 ```
-#####Note (as of June 2nd, 2015)
-Cocoapods has a [reported issue](https://github.com/CocoaPods/CocoaPods/issues/3557) that overwrites the file permissions for resources included with the pod. To fix, perform this call after `pod install`:
-```
-chmod 644 Pods/RealmSFRestaurantData/SFRestaurantScores.realm
-```
-_If you already ran the app before applying the fix, make sure to delete the app and re-run to force the fixed Realm file to be included in the bundle._
-
 #####Requirements
 
 * iOS 8+

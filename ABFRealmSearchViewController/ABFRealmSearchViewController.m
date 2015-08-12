@@ -34,6 +34,8 @@
     
 #ifdef DEBUG
     NSAssert(self.resultsDataSource, @"No data source set!");
+    NSAssert(self.entityName, @"EntityName not set!");
+    NSAssert(self.searchPropertyKeyPath, @"SearchPropertyKeyPath not set!");
 #endif
     
     if (self.searchBarInTableView) {
@@ -59,7 +61,7 @@
     [self.fetchResultsController performFetch];
 }
 
-#pragma mark - Public Instance
+#pragma mark - ABFRealmSearchViewController Initializiation
 
 - (instancetype)initWithEntityName:(NSString *)entityName
              searchPropertyKeyPath:(NSString *)keyPath
@@ -114,39 +116,103 @@
     self = [super initWithStyle:style];
     
     if (self) {
-        // Defaults
-        _resultsDataSource = self;
-        _resultsDelegate = self;
-        
-        _searchBarInTableView = YES;
-        _useContainsSearch = NO;
-        _caseInsensitiveSearch = YES;
-        _sortAscending = YES;
-        
-        _entityName = entityName;
-        _realmPath = realm.path;
-        _searchPropertyKeyPath = keyPath;
-        
-        // Only use keyPath for sort if it is just a key
-        if (![keyPath containsString:@"."]) {
-            _sortPropertyKey = keyPath;
-        }
-        
-        _basePredicate = basePredicate;
-        
-        // Create the search controller
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-        _searchController.searchResultsUpdater = self;
-        _searchController.dimsBackgroundDuringPresentation = NO;
-        
-        _searchBar = _searchController.searchBar;
-        
-        // Search queue
-        _searchQueue = [[NSOperationQueue alloc] init];
-        _searchQueue.maxConcurrentOperationCount = 1;
+        [self defaultInitWithEntityName:entityName
+                                inRealm:realm
+                  searchPropertyKeyPath:keyPath
+                          basePredicate:basePredicate];
     }
     
     return self;
+}
+
+#pragma mark UITableViewController Initialization
+
+- (instancetype)init
+{
+    self = [super init];
+    
+    if (self) {
+        [self baseInit];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    if (self) {
+        [self baseInit];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    
+    if (self) {
+        [self baseInit];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        [self baseInit];
+    }
+    
+    return self;
+}
+
+- (void)defaultInitWithEntityName:(NSString *)entityName
+                          inRealm:(RLMRealm *)realm
+            searchPropertyKeyPath:(NSString *)keyPath
+                    basePredicate:(NSPredicate *)basePredicate
+{
+    [self baseInit];
+    
+    _entityName = entityName;
+    _realmPath = realm.path;
+    _searchPropertyKeyPath = keyPath;
+    
+    // Only use keyPath for sort if it is just a key
+    if (![keyPath containsString:@"."]) {
+        _sortPropertyKey = keyPath;
+    }
+    
+    _basePredicate = basePredicate;
+}
+
+- (void)baseInit
+{
+    // Defaults
+    _resultsDataSource = self;
+    _resultsDelegate = self;
+    
+    _searchBarInTableView = YES;
+    _useContainsSearch = NO;
+    _caseInsensitiveSearch = YES;
+    _sortAscending = YES;
+    
+    _realmPath = [RLMRealm defaultRealmPath];
+    
+    // Create the search controller
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    _searchController.searchResultsUpdater = self;
+    _searchController.dimsBackgroundDuringPresentation = NO;
+    
+    _searchBar = _searchController.searchBar;
+    
+    // Search queue
+    _searchQueue = [[NSOperationQueue alloc] init];
+    _searchQueue.maxConcurrentOperationCount = 1;
 }
 
 #pragma mark - <UISearchResultsUpdating>
@@ -189,11 +255,11 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.resultsDelegate respondsToSelector:@selector(searchViewController:willSelectObject:)]) {
+    if ([self.resultsDelegate respondsToSelector:@selector(searchViewController:willSelectObject:atIndexPath:)]) {
         
         id object = [self.fetchResultsController objectAtIndexPath:indexPath];
         
-        [self.resultsDelegate searchViewController:self willSelectObject:object];
+        [self.resultsDelegate searchViewController:self willSelectObject:object atIndexPath:indexPath];
     }
     
     return indexPath;
@@ -201,11 +267,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.resultsDelegate respondsToSelector:@selector(searchViewController:didSelectObject:)]) {
+    if ([self.resultsDelegate respondsToSelector:@selector(searchViewController:didSelectObject:atIndexPath:)]) {
         
         id object = [self.fetchResultsController objectAtIndexPath:indexPath];
         
-        [self.resultsDelegate searchViewController:self didSelectObject:object];
+        [self.resultsDelegate searchViewController:self didSelectObject:object atIndexPath:indexPath];
     }
 }
 

@@ -45,6 +45,7 @@
 
 - (void)searchViewController:(ABFRealmSearchViewController *)searchViewController
              didSelectObject:(id)selectedObject
+                 atIndexPath:(NSIndexPath *)indexPath
 {
     RestaurantTableViewController *restaurantViewController = [[RestaurantTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     

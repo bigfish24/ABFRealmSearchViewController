@@ -41,16 +41,22 @@
  *
  *  @param searchViewController the search view controller instance
  *  @param anObject             the object to be selected
+ *  @param indexPath            the indexPath that the object resides at
  */
-- (void)searchViewController:(ABFRealmSearchViewController *)searchViewController willSelectObject:(id)anObject;
+- (void)searchViewController:(ABFRealmSearchViewController *)searchViewController
+            willSelectObject:(id)anObject
+                 atIndexPath:(NSIndexPath *)indexPath;
 
 /**
  *  Called just when an object is selected from the search results table view
  *
  *  @param searchViewController the search view controller instance
  *  @param selectedObject       the selected object
+ *  @param indexPath            the indexPath that the object resides at
  */
-- (void)searchViewController:(ABFRealmSearchViewController *)searchViewController didSelectObject:(id)selectedObject;
+- (void)searchViewController:(ABFRealmSearchViewController *)searchViewController
+             didSelectObject:(id)selectedObject
+                 atIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -72,7 +78,7 @@
 /**
  *  The entity (Realm object) name
  */
-@property (nonatomic, readonly) NSString *entityName;
+@property (nonatomic, strong) IBInspectable NSString *entityName;
 
 /**
  *  The Realm in which the given entity is being searched against in
@@ -87,7 +93,7 @@
 /**
  *  The keyPath on the entity that will be searched against.
  */
-@property (nonatomic, readonly) NSString *searchPropertyKeyPath;
+@property (nonatomic, strong) IBInspectable NSString *searchPropertyKeyPath;
 
 /**
  *  The base predicate, used when the search bar text is blank. Can be nil.
@@ -107,28 +113,28 @@
  *
  *  Default is YES
  */
-@property (nonatomic, assign) BOOL sortAscending;
+@property (nonatomic, assign) IBInspectable BOOL sortAscending;
 
 /**
  *  Defines whether the search bar is inserted into the table view header
  *
  *  Default is YES
  */
-@property (nonatomic, assign) BOOL searchBarInTableView;
+@property (nonatomic, assign) IBInspectable BOOL searchBarInTableView;
 
 /**
  *  Defines whether the text search is case insensitive
  *
  *  Default is YES
  */
-@property (nonatomic, assign) BOOL caseInsensitiveSearch;
+@property (nonatomic, assign) IBInspectable BOOL caseInsensitiveSearch;
 
 /**
  *  Defines whether the text input uses a CONTAINS filter or just BEGINSWITH.
  *
  *  Default is NO
  */
-@property (nonatomic, assign) BOOL useContainsSearch;
+@property (nonatomic, assign) IBInspectable BOOL useContainsSearch;
 
 /**
  *  Initializes an instance of ABFRealmSearchViewController with a given entity name defined in the default Realm

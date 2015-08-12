@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		615CFFBFD8B4BB19EACBCE87 /* libPods-ABFRealmSearchViewControllerExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B080D244A4C50F1A9351211 /* libPods-ABFRealmSearchViewControllerExampleTests.a */; };
 		62AE61877868338E57EB168B /* libPods-ABFRealmSearchViewControllerExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5762913E9F98C1E8520BB40E /* libPods-ABFRealmSearchViewControllerExample.a */; };
+		A02674EC1B7A70F000A85890 /* BlogObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A02674EB1B7A70F000A85890 /* BlogObject.m */; };
+		A02674EE1B7A7BAB00A85890 /* blog.json in Resources */ = {isa = PBXBuildFile; fileRef = A02674ED1B7A7BAB00A85890 /* blog.json */; };
+		A02674F11B7A7FD800A85890 /* BlogSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02674F01B7A7FD800A85890 /* BlogSearchViewController.m */; };
+		A02674F41B7A9C1700A85890 /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = A02674F31B7A9C1700A85890 /* emoji.json */; };
+		A02674FB1B7AA05100A85890 /* BlogPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A02674F91B7AA05100A85890 /* BlogPostTableViewCell.m */; };
+		A02674FC1B7AA05100A85890 /* BlogPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02674FA1B7AA05100A85890 /* BlogPostTableViewCell.xib */; };
+		A02674FE1B7ACB7D00A85890 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02674FD1B7ACB7D00A85890 /* Twitter.framework */; };
+		A02675001B7ACB8D00A85890 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02674FF1B7ACB8D00A85890 /* MessageUI.framework */; };
+		A02675021B7ACB9300A85890 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02675011B7ACB9300A85890 /* QuartzCore.framework */; };
 		A06AF4331B1E84330083C8C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AF4321B1E84330083C8C5 /* main.m */; };
 		A06AF4361B1E84330083C8C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AF4351B1E84330083C8C5 /* AppDelegate.m */; };
 		A06AF43C1B1E84330083C8C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06AF43A1B1E84330083C8C5 /* Main.storyboard */; };
@@ -37,6 +46,18 @@
 		1B60293F5294A67C339829CC /* Pods-ABFRealmSearchViewControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample.release.xcconfig"; sourceTree = "<group>"; };
 		5762913E9F98C1E8520BB40E /* libPods-ABFRealmSearchViewControllerExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFRealmSearchViewControllerExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		690A26942168AF76D74CCAC7 /* Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		A02674EA1B7A70F000A85890 /* BlogObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogObject.h; sourceTree = "<group>"; };
+		A02674EB1B7A70F000A85890 /* BlogObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogObject.m; sourceTree = "<group>"; };
+		A02674ED1B7A7BAB00A85890 /* blog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blog.json; sourceTree = "<group>"; };
+		A02674EF1B7A7FD800A85890 /* BlogSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogSearchViewController.h; sourceTree = "<group>"; };
+		A02674F01B7A7FD800A85890 /* BlogSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogSearchViewController.m; sourceTree = "<group>"; };
+		A02674F31B7A9C1700A85890 /* emoji.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji.json; sourceTree = "<group>"; };
+		A02674F81B7AA05100A85890 /* BlogPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogPostTableViewCell.h; sourceTree = "<group>"; };
+		A02674F91B7AA05100A85890 /* BlogPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogPostTableViewCell.m; sourceTree = "<group>"; };
+		A02674FA1B7AA05100A85890 /* BlogPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogPostTableViewCell.xib; sourceTree = "<group>"; };
+		A02674FD1B7ACB7D00A85890 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		A02674FF1B7ACB8D00A85890 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A02675011B7ACB9300A85890 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A06AF42D1B1E84330083C8C5 /* ABFRealmSearchViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABFRealmSearchViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06AF4311B1E84330083C8C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A06AF4321B1E84330083C8C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,6 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02675021B7ACB9300A85890 /* QuartzCore.framework in Frameworks */,
+				A02675001B7ACB8D00A85890 /* MessageUI.framework in Frameworks */,
+				A02674FE1B7ACB7D00A85890 /* Twitter.framework in Frameworks */,
 				62AE61877868338E57EB168B /* libPods-ABFRealmSearchViewControllerExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +106,9 @@
 		7D7125E5514F7F81AA4670C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A02675011B7ACB9300A85890 /* QuartzCore.framework */,
+				A02674FF1B7ACB8D00A85890 /* MessageUI.framework */,
+				A02674FD1B7ACB7D00A85890 /* Twitter.framework */,
 				5762913E9F98C1E8520BB40E /* libPods-ABFRealmSearchViewControllerExample.a */,
 				0B080D244A4C50F1A9351211 /* libPods-ABFRealmSearchViewControllerExampleTests.a */,
 			);
@@ -121,9 +148,18 @@
 				A06AF4571B1E85760083C8C5 /* MainTableViewController.m */,
 				A06AF4581B1E85760083C8C5 /* RestaurantSearchViewController.h */,
 				A06AF4591B1E85760083C8C5 /* RestaurantSearchViewController.m */,
+				A02674EF1B7A7FD800A85890 /* BlogSearchViewController.h */,
+				A02674F01B7A7FD800A85890 /* BlogSearchViewController.m */,
 				A06AF45A1B1E85760083C8C5 /* RestaurantTableViewController.h */,
 				A06AF45B1B1E85760083C8C5 /* RestaurantTableViewController.m */,
 				A06AF4301B1E84330083C8C5 /* Supporting Files */,
+				A02674EA1B7A70F000A85890 /* BlogObject.h */,
+				A02674EB1B7A70F000A85890 /* BlogObject.m */,
+				A02674ED1B7A7BAB00A85890 /* blog.json */,
+				A02674F31B7A9C1700A85890 /* emoji.json */,
+				A02674F81B7AA05100A85890 /* BlogPostTableViewCell.h */,
+				A02674F91B7AA05100A85890 /* BlogPostTableViewCell.m */,
+				A02674FA1B7AA05100A85890 /* BlogPostTableViewCell.xib */,
 			);
 			path = ABFRealmSearchViewControllerExample;
 			sourceTree = "<group>";
@@ -260,6 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A06AF43C1B1E84330083C8C5 /* Main.storyboard in Resources */,
+				A02674FC1B7AA05100A85890 /* BlogPostTableViewCell.xib in Resources */,
+				A02674EE1B7A7BAB00A85890 /* blog.json in Resources */,
+				A02674F41B7A9C1700A85890 /* emoji.json in Resources */,
 				A06AF4411B1E84330083C8C5 /* LaunchScreen.xib in Resources */,
 				A06AF43E1B1E84330083C8C5 /* Images.xcassets in Resources */,
 			);
@@ -348,6 +387,9 @@
 				A06AF4361B1E84330083C8C5 /* AppDelegate.m in Sources */,
 				A06AF45D1B1E85760083C8C5 /* RestaurantSearchViewController.m in Sources */,
 				A06AF4331B1E84330083C8C5 /* main.m in Sources */,
+				A02674FB1B7AA05100A85890 /* BlogPostTableViewCell.m in Sources */,
+				A02674F11B7A7FD800A85890 /* BlogSearchViewController.m in Sources */,
+				A02674EC1B7A70F000A85890 /* BlogObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

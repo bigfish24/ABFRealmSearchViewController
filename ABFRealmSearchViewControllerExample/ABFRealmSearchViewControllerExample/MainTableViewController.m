@@ -8,17 +8,22 @@
 
 #import "MainTableViewController.h"
 #import "RestaurantSearchViewController.h"
+#import "BlogObject.h"
+#import "BlogSearchViewController.h"
 
 #import <Realm/Realm.h>
 #import <RealmSFRestaurantData/SFRestaurantScores.h>
 
 static NSString *kABFSectionSearchRestaurants = @"restaurantSearch";
+static NSString *kABFSectionSearchBlogs = @"blogSearch";
 
 @interface MainTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *sections;
 
 @property (nonatomic, assign) NSUInteger numberOfRestaurants;
+
+@property (nonatomic, assign) NSUInteger numberOfBlogs;
 
 @end
 
@@ -27,13 +32,17 @@ static NSString *kABFSectionSearchRestaurants = @"restaurantSearch";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.sections = [NSMutableArray arrayWithObjects:kABFSectionSearchRestaurants, nil];
+    self.sections = [NSMutableArray arrayWithObjects:kABFSectionSearchRestaurants,kABFSectionSearchBlogs, nil];
     
     RLMRealm *restaurantRealm = [RLMRealm realmWithPath:ABFRestaurantScoresPath()];
     
     RLMResults *restaurants = [ABFRestaurantObject allObjectsInRealm:restaurantRealm];
     
+    RLMResults *blogs = [BlogObject allObjects];
+    
     self.numberOfRestaurants = restaurants.count;
+    
+    self.numberOfBlogs = blogs.count;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,9 +68,15 @@ static NSString *kABFSectionSearchRestaurants = @"restaurantSearch";
     
     if ([sectionString isEqualToString:kABFSectionSearchRestaurants]) {
         
-        cell.textLabel.text = @"Restaurants";
+        cell.textLabel.text = @"San Francisco Restaurants";
         
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.numberOfRestaurants];
+    }
+    else if ([sectionString isEqualToString:kABFSectionSearchBlogs]) {
+        
+        cell.textLabel.text = @"Realm Blogs";
+        
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.numberOfBlogs];
     }
     
     return cell;
@@ -83,6 +98,17 @@ static NSString *kABFSectionSearchRestaurants = @"restaurantSearch";
                                              searchPropertyKeyPath:@"name"];
         
         [self.navigationController pushViewController:restaurantSearchViewController animated:YES];
+    }
+    else if ([sectionString isEqualToString:kABFSectionSearchBlogs]) {
+        
+        BlogSearchViewController *blogSearchViewController =
+        [[BlogSearchViewController  alloc] initWithEntityName:@"BlogObject"
+                                                      inRealm:[RLMRealm defaultRealm]
+                                        searchPropertyKeyPath:@"title"];
+        
+        blogSearchViewController.useContainsSearch = YES;
+        
+        [self.navigationController pushViewController:blogSearchViewController animated:YES];
     }
 }
 

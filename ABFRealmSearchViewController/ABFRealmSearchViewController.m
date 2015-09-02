@@ -20,7 +20,7 @@
 
 @property (strong, nonatomic) NSOperationQueue *searchQueue;
 
-@property (strong, nonatomic) NSString *realmPath;
+@property (strong, nonatomic) RLMRealmConfiguration *realmConfiguration;
 
 @end
 
@@ -179,7 +179,7 @@
     [self baseInit];
     
     _entityName = entityName;
-    _realmPath = realm.path;
+    _realmConfiguration = realm.configuration;
     _searchPropertyKeyPath = keyPath;
     
     // Only use keyPath for sort if it is just a key
@@ -201,7 +201,7 @@
     _caseInsensitiveSearch = YES;
     _sortAscending = YES;
     
-    _realmPath = [RLMRealm defaultRealmPath];
+    _realmConfiguration = [RLMRealmConfiguration defaultConfiguration];
     
     // Create the search controller
     _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
@@ -227,7 +227,7 @@
     
     NSBlockOperation *searchOperation = [NSBlockOperation blockOperationWithBlock:^() {
         
-        RLMRealm *realm = [RLMRealm realmWithPath:weakSelf.realmPath];
+        RLMRealm *realm = [RLMRealm realmWithConfiguration:weakSelf.realmConfiguration error:nil];
         
         // Create new fetch request with predicate
         RBQFetchRequest *searchFetchRequest = [weakSelf searchFetchRequestWithEntityName:weakSelf.entityName
@@ -314,7 +314,7 @@
 
 - (RLMRealm *)realm
 {
-    return [RLMRealm realmWithPath:self.realmPath];
+    return [RLMRealm realmWithConfiguration:self.realmConfiguration error:nil];
 }
 
 #pragma mark - Private

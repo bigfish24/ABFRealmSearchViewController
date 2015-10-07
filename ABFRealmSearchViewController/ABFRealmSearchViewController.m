@@ -12,6 +12,8 @@
 #import <RBQFetchedResultsController/RBQFetchedResultsController.h>
 #import <RBQFetchedResultsController/RBQFetchRequest.h>
 
+typedef void(^ABFBlock)();
+
 @interface ABFRealmSearchViewController () <UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) RBQFetchedResultsController *fetchResultsController;
@@ -21,6 +23,8 @@
 @property (strong, nonatomic) NSOperationQueue *searchQueue;
 
 @property (strong, nonatomic) RLMRealmConfiguration *realmConfiguration;
+
+@property (assign, nonatomic) BOOL viewLoaded;
 
 @end
 
@@ -32,12 +36,6 @@
 {
     [super viewDidLoad];
     
-#ifdef DEBUG
-    NSAssert(self.resultsDataSource, @"No data source set!");
-    NSAssert(self.entityName, @"EntityName not set!");
-    NSAssert(self.searchPropertyKeyPath, @"SearchPropertyKeyPath not set!");
-#endif
-    
     if (self.searchBarInTableView) {
         
         self.tableView.tableHeaderView = self.searchBar;
@@ -47,18 +45,9 @@
     
     self.definesPresentationContext = YES;
     
-    // Create the base fetch request (nil predicate will return all restaurants)
-    RBQFetchRequest *baseFetch = [self searchFetchRequestWithEntityName:self.entityName
-                                                                inRealm:self.realm
-                                                              predicate:self.basePredicate];
+    self.viewLoaded = YES;
     
-    // Create the fetch results controller
-    self.fetchResultsController = [[RBQFetchedResultsController alloc] initWithFetchRequest:baseFetch
-                                                                         sectionNameKeyPath:nil
-                                                                                  cacheName:nil];
-    
-    // Trigger the fetch
-    [self.fetchResultsController performFetch];
+    [self updateFetchedResultsController:self.basePredicate];
 }
 
 #pragma mark - ABFRealmSearchViewController Initializiation
@@ -203,6 +192,9 @@
     
     _realmConfiguration = [RLMRealmConfiguration defaultConfiguration];
     
+    // Create the FRC
+    _fetchResultsController = [[RBQFetchedResultsController alloc] init];
+    
     // Create the search controller
     _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     _searchController.searchResultsUpdater = self;
@@ -227,21 +219,7 @@
     
     NSBlockOperation *searchOperation = [NSBlockOperation blockOperationWithBlock:^() {
         
-        RLMRealm *realm = [RLMRealm realmWithConfiguration:weakSelf.realmConfiguration error:nil];
-        
-        // Create new fetch request with predicate
-        RBQFetchRequest *searchFetchRequest = [weakSelf searchFetchRequestWithEntityName:weakSelf.entityName
-                                                                                 inRealm:realm
-                                                                               predicate:predicate];
-        
-        [weakSelf.fetchResultsController updateFetchRequest:searchFetchRequest
-                                         sectionNameKeyPath:nil
-                                             andPeformFetch:YES];
-        
-        // Reload table view on main threa
-        dispatch_async(dispatch_get_main_queue(), ^() {
-            [weakSelf.tableView reloadData];
-        });
+        [weakSelf updateFetchedResultsController:predicate];
     }];
     
     // Remove any pending searches
@@ -317,7 +295,84 @@
     return [RLMRealm realmWithConfiguration:self.realmConfiguration error:nil];
 }
 
+#pragma mark - Setters
+
+- (void)setEntityName:(NSString *)entityName
+{
+    _entityName = entityName;
+    
+    [self updateFetchedResultsController:self.basePredicate];
+}
+
+
+- (void)setSearchPropertyKeyPath:(NSString *)searchPropertyKeyPath
+{
+    _searchPropertyKeyPath = searchPropertyKeyPath;
+    
+    [self updateFetchedResultsController:self.basePredicate];
+}
+
+- (void)setBasePredicate:(NSPredicate *)basePredicate
+{
+    _basePredicate = basePredicate;
+    
+    [self updateFetchedResultsController:self.basePredicate];
+}
+
+- (void)setSortPropertyKey:(NSString *)sortPropertyKey
+{
+    _sortPropertyKey = sortPropertyKey;
+    
+    [self updateFetchedResultsController:self.basePredicate];
+}
+
+- (void)setSortAscending:(BOOL)sortAscending
+{
+    _sortAscending = sortAscending;
+    
+    [self updateFetchedResultsController:self.basePredicate];
+}
+
+- (void)setCaseInsensitiveSearch:(BOOL)caseInsensitiveSearch
+{
+    _caseInsensitiveSearch = caseInsensitiveSearch;
+    
+    [self updateFetchedResultsController:self.basePredicate];
+}
+
+- (void)setUseContainsSearch:(BOOL)useContainsSearch
+{
+    _useContainsSearch = useContainsSearch;
+    
+    [self updateFetchedResultsController:self.basePredicate];
+}
+
 #pragma mark - Private
+
+- (void)updateFetchedResultsController:(NSPredicate *)predicate
+{
+    @synchronized(self) {
+        RBQFetchRequest *fetchRequest = [self searchFetchRequestWithEntityName:self.entityName
+                                                                       inRealm:self.realm
+                                                                     predicate:predicate
+                                                               sortPropertyKey:self.sortPropertyKey
+                                                                 sortAscending:self.sortAscending];
+        
+        if (fetchRequest) {
+            [self.fetchResultsController updateFetchRequest:fetchRequest
+                                         sectionNameKeyPath:nil
+                                             andPeformFetch:self.viewLoaded];
+            
+            if (self.viewLoaded) {
+                
+                typeof(self) __weak weakSelf = self;
+                [self runOnMainThread:^{
+                    [weakSelf.tableView reloadData];
+                }];
+            }
+        }
+    }
+}
 
 - (NSPredicate *)searchPredicateWithText:(NSString *)text
 {
@@ -351,20 +406,38 @@
 - (RBQFetchRequest *)searchFetchRequestWithEntityName:(NSString *)entityName
                                               inRealm:(RLMRealm *)realm
                                             predicate:(NSPredicate *)predicate
+                                      sortPropertyKey:(NSString *)sortPropertyKey
+                                        sortAscending:(BOOL)sortAscending
 {
-    RBQFetchRequest *fetchRequest = [RBQFetchRequest fetchRequestWithEntityName:entityName
-                                                                        inRealm:realm
-                                                                      predicate:predicate];
-    
-    if (self.sortPropertyKey) {
+    if (entityName && realm) {
+        RBQFetchRequest *fetchRequest = [RBQFetchRequest fetchRequestWithEntityName:entityName
+                                                                            inRealm:realm
+                                                                          predicate:predicate];
         
-        RLMSortDescriptor *sort = [RLMSortDescriptor sortDescriptorWithProperty:self.sortPropertyKey
-                                                                      ascending:self.sortAscending];
+        if (self.sortPropertyKey) {
+            
+            RLMSortDescriptor *sort = [RLMSortDescriptor sortDescriptorWithProperty:sortPropertyKey
+                                                                          ascending:sortAscending];
+            
+            fetchRequest.sortDescriptors = @[sort];
+        }
         
-        fetchRequest.sortDescriptors = @[sort];
+        return fetchRequest;
     }
     
-    return fetchRequest;
+    return nil;
+}
+
+- (void)runOnMainThread:(ABFBlock)block
+{
+    if ([NSThread isMainThread]) {
+        block();
+    }
+    else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            block();
+        });
+    }
 }
 
 @end

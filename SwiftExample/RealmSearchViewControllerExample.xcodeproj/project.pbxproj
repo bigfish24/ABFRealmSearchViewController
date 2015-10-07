@@ -1,0 +1,404 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0017FB81BBF53490068764D /* BlogSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0017FB71BBF53490068764D /* BlogSearchViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A0017FBB1BBF540C0068764D /* BlogPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0017FB91BBF540C0068764D /* BlogPostTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		A0017FBC1BBF540C0068764D /* BlogPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0017FBA1BBF540C0068764D /* BlogPostTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		A0017FBF1BBF58860068764D /* blog.json in Resources */ = {isa = PBXBuildFile; fileRef = A0017FBD1BBF58860068764D /* blog.json */; settings = {ASSET_TAGS = (); }; };
+		A0017FC01BBF58860068764D /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = A0017FBE1BBF58860068764D /* emoji.json */; settings = {ASSET_TAGS = (); }; };
+		A096D1BD1BBF30590012AA26 /* RealmSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096D1BC1BBF30590012AA26 /* RealmSearchViewController.swift */; };
+		A0EF1AE81BBE01D100DC7122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF1AE71BBE01D100DC7122 /* AppDelegate.swift */; };
+		A0EF1AED1BBE01D100DC7122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF1AEB1BBE01D100DC7122 /* Main.storyboard */; };
+		A0EF1AEF1BBE01D100DC7122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF1AEE1BBE01D100DC7122 /* Assets.xcassets */; };
+		A0EF1AF21BBE01D100DC7122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF1AF01BBE01D100DC7122 /* LaunchScreen.storyboard */; };
+		A0EF1AFA1BBEF22500DC7122 /* BlogObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF1AF91BBEF22500DC7122 /* BlogObject.swift */; };
+		D26CA625DAF93367679BEEDD /* Pods_RealmSearchViewControllerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4ECE17B43A3A26E8F16A77E /* Pods_RealmSearchViewControllerExample.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9ADB633D988B014A2B69D3AF /* Pods-RealmSearchViewControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSearchViewControllerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample.release.xcconfig"; sourceTree = "<group>"; };
+		A0017FB71BBF53490068764D /* BlogSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogSearchViewController.swift; sourceTree = "<group>"; };
+		A0017FB91BBF540C0068764D /* BlogPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewCell.swift; sourceTree = "<group>"; };
+		A0017FBA1BBF540C0068764D /* BlogPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogPostTableViewCell.xib; sourceTree = "<group>"; };
+		A0017FBD1BBF58860068764D /* blog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = blog.json; path = ../../ABFRealmSearchViewControllerExample/ABFRealmSearchViewControllerExample/blog.json; sourceTree = "<group>"; };
+		A0017FBE1BBF58860068764D /* emoji.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = emoji.json; path = ../../ABFRealmSearchViewControllerExample/ABFRealmSearchViewControllerExample/emoji.json; sourceTree = "<group>"; };
+		A096D1BC1BBF30590012AA26 /* RealmSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchViewController.swift; sourceTree = "<group>"; };
+		A0EF1AE41BBE01D100DC7122 /* RealmSearchViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmSearchViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF1AE71BBE01D100DC7122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0EF1AEC1BBE01D100DC7122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0EF1AEE1BBE01D100DC7122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0EF1AF11BBE01D100DC7122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A0EF1AF31BBE01D100DC7122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0EF1AF91BBEF22500DC7122 /* BlogObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogObject.swift; sourceTree = "<group>"; };
+		B4ECE17B43A3A26E8F16A77E /* Pods_RealmSearchViewControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmSearchViewControllerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D609E71EF972B246B0737494 /* Pods-RealmSearchViewControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSearchViewControllerExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0EF1AE11BBE01D100DC7122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D26CA625DAF93367679BEEDD /* Pods_RealmSearchViewControllerExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		57AA46690EFEA5348C2D7F00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D609E71EF972B246B0737494 /* Pods-RealmSearchViewControllerExample.debug.xcconfig */,
+				9ADB633D988B014A2B69D3AF /* Pods-RealmSearchViewControllerExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A096D1BB1BBF30190012AA26 /* RealmSearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A096D1BC1BBF30590012AA26 /* RealmSearchViewController.swift */,
+			);
+			name = RealmSearchViewController;
+			path = ../../RealmSearchViewController;
+			sourceTree = "<group>";
+		};
+		A0EF1ADB1BBE01D100DC7122 = {
+			isa = PBXGroup;
+			children = (
+				A0EF1AE61BBE01D100DC7122 /* RealmSearchViewControllerExample */,
+				A0EF1AE51BBE01D100DC7122 /* Products */,
+				57AA46690EFEA5348C2D7F00 /* Pods */,
+				F65D30898BE56CB721C31B0E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A0EF1AE51BBE01D100DC7122 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF1AE41BBE01D100DC7122 /* RealmSearchViewControllerExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0EF1AE61BBE01D100DC7122 /* RealmSearchViewControllerExample */ = {
+			isa = PBXGroup;
+			children = (
+				A096D1BB1BBF30190012AA26 /* RealmSearchViewController */,
+				A0EF1AE71BBE01D100DC7122 /* AppDelegate.swift */,
+				A0017FB71BBF53490068764D /* BlogSearchViewController.swift */,
+				A0EF1AEB1BBE01D100DC7122 /* Main.storyboard */,
+				A0EF1AEE1BBE01D100DC7122 /* Assets.xcassets */,
+				A0EF1AF01BBE01D100DC7122 /* LaunchScreen.storyboard */,
+				A0EF1AF31BBE01D100DC7122 /* Info.plist */,
+				A0EF1AF91BBEF22500DC7122 /* BlogObject.swift */,
+				A0017FB91BBF540C0068764D /* BlogPostTableViewCell.swift */,
+				A0017FBA1BBF540C0068764D /* BlogPostTableViewCell.xib */,
+				A0017FBD1BBF58860068764D /* blog.json */,
+				A0017FBE1BBF58860068764D /* emoji.json */,
+			);
+			path = RealmSearchViewControllerExample;
+			sourceTree = "<group>";
+		};
+		F65D30898BE56CB721C31B0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4ECE17B43A3A26E8F16A77E /* Pods_RealmSearchViewControllerExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0EF1AE31BBE01D100DC7122 /* RealmSearchViewControllerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EF1AF61BBE01D100DC7122 /* Build configuration list for PBXNativeTarget "RealmSearchViewControllerExample" */;
+			buildPhases = (
+				B75C7CE6AA89841296A49931 /* Check Pods Manifest.lock */,
+				A0EF1AE01BBE01D100DC7122 /* Sources */,
+				A0EF1AE11BBE01D100DC7122 /* Frameworks */,
+				A0EF1AE21BBE01D100DC7122 /* Resources */,
+				CE5F6A5999208BD8DE7C2518 /* Embed Pods Frameworks */,
+				1606E7B97798774115A71933 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RealmSearchViewControllerExample;
+			productName = RealmSearchViewControllerExample;
+			productReference = A0EF1AE41BBE01D100DC7122 /* RealmSearchViewControllerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0EF1ADC1BBE01D100DC7122 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Adam Fish";
+				TargetAttributes = {
+					A0EF1AE31BBE01D100DC7122 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = A0EF1ADF1BBE01D100DC7122 /* Build configuration list for PBXProject "RealmSearchViewControllerExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0EF1ADB1BBE01D100DC7122;
+			productRefGroup = A0EF1AE51BBE01D100DC7122 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0EF1AE31BBE01D100DC7122 /* RealmSearchViewControllerExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0EF1AE21BBE01D100DC7122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF1AF21BBE01D100DC7122 /* LaunchScreen.storyboard in Resources */,
+				A0EF1AEF1BBE01D100DC7122 /* Assets.xcassets in Resources */,
+				A0EF1AED1BBE01D100DC7122 /* Main.storyboard in Resources */,
+				A0017FBC1BBF540C0068764D /* BlogPostTableViewCell.xib in Resources */,
+				A0017FC01BBF58860068764D /* emoji.json in Resources */,
+				A0017FBF1BBF58860068764D /* blog.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1606E7B97798774115A71933 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B75C7CE6AA89841296A49931 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CE5F6A5999208BD8DE7C2518 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0EF1AE01BBE01D100DC7122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A096D1BD1BBF30590012AA26 /* RealmSearchViewController.swift in Sources */,
+				A0EF1AE81BBE01D100DC7122 /* AppDelegate.swift in Sources */,
+				A0017FBB1BBF540C0068764D /* BlogPostTableViewCell.swift in Sources */,
+				A0017FB81BBF53490068764D /* BlogSearchViewController.swift in Sources */,
+				A0EF1AFA1BBEF22500DC7122 /* BlogObject.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A0EF1AEB1BBE01D100DC7122 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0EF1AEC1BBE01D100DC7122 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A0EF1AF01BBE01D100DC7122 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0EF1AF11BBE01D100DC7122 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0EF1AF41BBE01D100DC7122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A0EF1AF51BBE01D100DC7122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0EF1AF71BBE01D100DC7122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D609E71EF972B246B0737494 /* Pods-RealmSearchViewControllerExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RealmSearchViewControllerExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Realm.RealmSearchViewControllerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A0EF1AF81BBE01D100DC7122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ADB633D988B014A2B69D3AF /* Pods-RealmSearchViewControllerExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RealmSearchViewControllerExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Realm.RealmSearchViewControllerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0EF1ADF1BBE01D100DC7122 /* Build configuration list for PBXProject "RealmSearchViewControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EF1AF41BBE01D100DC7122 /* Debug */,
+				A0EF1AF51BBE01D100DC7122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0EF1AF61BBE01D100DC7122 /* Build configuration list for PBXNativeTarget "RealmSearchViewControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EF1AF71BBE01D100DC7122 /* Debug */,
+				A0EF1AF81BBE01D100DC7122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0EF1ADC1BBE01D100DC7122 /* Project object */;
+}

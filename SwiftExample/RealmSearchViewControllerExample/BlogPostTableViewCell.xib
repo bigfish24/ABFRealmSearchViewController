@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BlogPostTableViewCell" customModule="RealmSearchViewControllerExample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsF-BH-VV7" userLabel="Emoji Label">
+                        <rect key="frame" x="8" y="8" width="30" height="72"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="spF-SK-KoD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blog Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJV-gK-LoD" userLabel="Title Label">
+                        <rect key="frame" x="50" y="8" width="208" height="20"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="qdp-nW-6Ze"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8/11/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brU-pZ-6Cw" userLabel="Date Label">
+                        <rect key="frame" x="262" y="10" width="50" height="16"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Nk2-hi-Oc3"/>
+                            <constraint firstAttribute="height" constant="16" id="Q5x-md-8zH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blog Post Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdS-ZC-ZNk" userLabel="Content Label">
+                        <rect key="frame" x="50" y="32" width="262" height="48"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="mdS-ZC-ZNk" firstAttribute="leading" secondItem="XsF-BH-VV7" secondAttribute="trailing" constant="12" id="6Oa-eq-Lxf"/>
+                    <constraint firstItem="brU-pZ-6Cw" firstAttribute="leading" secondItem="cJV-gK-LoD" secondAttribute="trailing" constant="4" id="9KZ-Ld-SXd"/>
+                    <constraint firstItem="mdS-ZC-ZNk" firstAttribute="top" secondItem="cJV-gK-LoD" secondAttribute="bottom" constant="4" id="9Zv-y6-zod"/>
+                    <constraint firstItem="XsF-BH-VV7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Cbl-Ec-bQ1"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="mdS-ZC-ZNk" secondAttribute="bottom" id="Dhx-kS-wwv"/>
+                    <constraint firstItem="mdS-ZC-ZNk" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="GHj-QM-x9c"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="XsF-BH-VV7" secondAttribute="bottom" id="QKY-rP-A1o"/>
+                    <constraint firstItem="cJV-gK-LoD" firstAttribute="leading" secondItem="XsF-BH-VV7" secondAttribute="trailing" constant="12" id="Yd6-fK-goi"/>
+                    <constraint firstItem="cJV-gK-LoD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="aW8-oA-FWU"/>
+                    <constraint firstItem="brU-pZ-6Cw" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="csH-z0-Ky5"/>
+                    <constraint firstItem="brU-pZ-6Cw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="gpl-I7-lHa"/>
+                    <constraint firstItem="XsF-BH-VV7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="sdv-qN-HQQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="contentLabel" destination="mdS-ZC-ZNk" id="2Hc-Nk-vsh"/>
+                <outlet property="dateLabel" destination="brU-pZ-6Cw" id="paH-Ph-6Q0"/>
+                <outlet property="emojiLabel" destination="XsF-BH-VV7" id="oUy-AC-sji"/>
+                <outlet property="titleLabel" destination="cJV-gK-LoD" id="EnA-if-TqF"/>
+            </connections>
+            <point key="canvasLocation" x="885" y="699"/>
+        </tableViewCell>
+    </objects>
+</document>

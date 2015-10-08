@@ -24,9 +24,9 @@
  *
  *  @return instance of UITableViewCell that displays the object information
  */
-- (UITableViewCell *)searchViewController:(ABFRealmSearchViewController *)searchViewController
-                        cellForObject:(id)anObject
-                          atIndexPath:(NSIndexPath *)indexPath;
+- (nonnull UITableViewCell *)searchViewController:(nonnull ABFRealmSearchViewController *)searchViewController
+                                    cellForObject:(nonnull id)anObject
+                                      atIndexPath:(nonnull NSIndexPath *)indexPath;
 @end
 
 /**
@@ -43,9 +43,9 @@
  *  @param anObject             the object to be selected
  *  @param indexPath            the indexPath that the object resides at
  */
-- (void)searchViewController:(ABFRealmSearchViewController *)searchViewController
-            willSelectObject:(id)anObject
-                 atIndexPath:(NSIndexPath *)indexPath;
+- (void)searchViewController:(nonnull ABFRealmSearchViewController *)searchViewController
+            willSelectObject:(nonnull id)anObject
+                 atIndexPath:(nonnull NSIndexPath *)indexPath;
 
 /**
  *  Called just when an object is selected from the search results table view
@@ -54,9 +54,9 @@
  *  @param selectedObject       the selected object
  *  @param indexPath            the indexPath that the object resides at
  */
-- (void)searchViewController:(ABFRealmSearchViewController *)searchViewController
-             didSelectObject:(id)selectedObject
-                 atIndexPath:(NSIndexPath *)indexPath;
+- (void)searchViewController:(nonnull ABFRealmSearchViewController *)searchViewController
+             didSelectObject:(nonnull id)selectedObject
+                 atIndexPath:(nonnull NSIndexPath *)indexPath;
 
 @end
 
@@ -68,37 +68,37 @@
 /**
  *  The data source object for the search view controller
  */
-@property (nonatomic, weak) id<ABFRealmSearchResultsDataSource> resultsDataSource;
+@property (nonatomic, weak, nullable) id<ABFRealmSearchResultsDataSource> resultsDataSource;
 
 /**
  *  The delegate for the search view controller
  */
-@property (nonatomic, weak) id<ABFRealmSearchResultsDelegate> resultsDelegate;
+@property (nonatomic, weak, nullable) id<ABFRealmSearchResultsDelegate> resultsDelegate;
 
 /**
  *  The entity (Realm object) name
  */
-@property (nonatomic, strong) IBInspectable NSString *entityName;
+@property (nonatomic, strong, nonnull) IBInspectable NSString *entityName;
 
 /**
  *  The Realm in which the given entity is being searched against in
  */
-@property (nonatomic, readonly) RLMRealm *realm;
+@property (nonatomic, readonly, nonnull) RLMRealm *realm;
 
 /**
  *  The search bar for the controller
  */
-@property (nonatomic, readonly) UISearchBar *searchBar;
+@property (nonatomic, readonly, nonnull) UISearchBar *searchBar;
 
 /**
  *  The keyPath on the entity that will be searched against.
  */
-@property (nonatomic, strong) IBInspectable NSString *searchPropertyKeyPath;
+@property (nonatomic, strong, nonnull) IBInspectable NSString *searchPropertyKeyPath;
 
 /**
  *  The base predicate, used when the search bar text is blank. Can be nil.
  */
-@property (nonatomic, readonly) NSPredicate *basePredicate;
+@property (nonatomic, strong, nullable) NSPredicate *basePredicate;
 
 /**
  *  The key to sort the results on.
@@ -106,7 +106,7 @@
  *  By default this uses searchPropertyKeyPath if it is just a key.
  *  Realm currently doesn't support sorting by key path.
  */
-@property (nonatomic, strong) NSString *sortPropertyKey;
+@property (nonatomic, strong, nullable) NSString *sortPropertyKey;
 
 /**
  *  Defines whether the search results are sorted ascending
@@ -147,8 +147,8 @@
  *
  *  @return instance of ABFRealmSearchViewController
  */
-- (instancetype)initWithEntityName:(NSString *)entityName
-             searchPropertyKeyPath:(NSString *)keyPath;
+- (nonnull instancetype)initWithEntityName:(nonnull NSString *)entityName
+                     searchPropertyKeyPath:(nonnull NSString *)keyPath;
 
 /**
  *  Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm
@@ -162,9 +162,9 @@
  *
  *  @return instance of ABFRealmSearchViewController
  */
-- (instancetype)initWithEntityName:(NSString *)entityName
-                           inRealm:(RLMRealm *)realm
-             searchPropertyKeyPath:(NSString *)keyPath;
+- (nonnull instancetype)initWithEntityName:(nonnull NSString *)entityName
+                                   inRealm:(nonnull RLMRealm *)realm
+                     searchPropertyKeyPath:(nonnull NSString *)keyPath;
 
 /**
  *  Initializes an instance of ABFRealmSearchViewController with a given entity name defined in the default Realm
@@ -178,9 +178,9 @@
  *
  *  @return instance of ABFRealmSearchViewController
  */
-- (instancetype)initWithEntityName:(NSString *)entityName
-             searchPropertyKeyPath:(NSString *)keyPath
-                     basePredicate:(NSPredicate *)basePredicate;
+- (nonnull instancetype)initWithEntityName:(nonnull NSString *)entityName
+                     searchPropertyKeyPath:(nonnull NSString *)keyPath
+                             basePredicate:(nullable NSPredicate *)basePredicate;
 
 /**
  *  Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm
@@ -195,10 +195,10 @@
  *
  *  @return instance of ABFRealmSearchViewController
  */
-- (instancetype)initWithEntityName:(NSString *)entityName
-                           inRealm:(RLMRealm *)realm
-             searchPropertyKeyPath:(NSString *)keyPath
-                     basePredicate:(NSPredicate *)basePredicate;
+- (nonnull instancetype)initWithEntityName:(nonnull NSString *)entityName
+                                   inRealm:(nonnull RLMRealm *)realm
+                     searchPropertyKeyPath:(nonnull NSString *)keyPath
+                             basePredicate:(nullable NSPredicate *)basePredicate;
 
 /**
  *  Initializes an instance of ABFRealmSearchViewController with a given entity name defined in a specific Realm
@@ -211,10 +211,10 @@
  *
  *  @return instance of ABFRealmSearchViewController
  */
-- (instancetype)initWithEntityName:(NSString *)entityName
-                           inRealm:(RLMRealm *)realm
-             searchPropertyKeyPath:(NSString *)keyPath
-                     basePredicate:(NSPredicate *)basePredicate
-                    tableViewStyle:(UITableViewStyle)style;
+- (nonnull instancetype)initWithEntityName:(nonnull NSString *)entityName
+                                   inRealm:(nonnull RLMRealm *)realm
+                     searchPropertyKeyPath:(nonnull NSString *)keyPath
+                             basePredicate:(nullable NSPredicate *)basePredicate
+                            tableViewStyle:(UITableViewStyle)style;
 
 @end

@@ -29,6 +29,7 @@ typedef void(^ABFBlock)();
 @end
 
 @implementation ABFRealmSearchViewController
+@synthesize sortPropertyKey = _sortPropertyKey;
 
 #pragma mark - UIKit
 
@@ -170,12 +171,6 @@ typedef void(^ABFBlock)();
     _entityName = entityName;
     _realmConfiguration = realm.configuration;
     _searchPropertyKeyPath = keyPath;
-    
-    // Only use keyPath for sort if it is just a key
-    if (![keyPath containsString:@"."]) {
-        _sortPropertyKey = keyPath;
-    }
-    
     _basePredicate = basePredicate;
 }
 
@@ -293,6 +288,17 @@ typedef void(^ABFBlock)();
 - (RLMRealm *)realm
 {
     return [RLMRealm realmWithConfiguration:self.realmConfiguration error:nil];
+}
+
+- (NSString *)sortPropertyKey
+{
+    if (!_sortPropertyKey &&
+        ![self.searchPropertyKeyPath containsString:@"."]) {
+        
+        return self.searchPropertyKeyPath;
+    }
+    
+    return _sortPropertyKey;
 }
 
 #pragma mark - Setters

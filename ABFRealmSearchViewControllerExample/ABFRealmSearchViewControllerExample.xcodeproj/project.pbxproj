@@ -152,7 +152,6 @@
 				A02674F01B7A7FD800A85890 /* BlogSearchViewController.m */,
 				A06AF45A1B1E85760083C8C5 /* RestaurantTableViewController.h */,
 				A06AF45B1B1E85760083C8C5 /* RestaurantTableViewController.m */,
-				A06AF4301B1E84330083C8C5 /* Supporting Files */,
 				A02674EA1B7A70F000A85890 /* BlogObject.h */,
 				A02674EB1B7A70F000A85890 /* BlogObject.m */,
 				A02674ED1B7A7BAB00A85890 /* blog.json */,
@@ -160,6 +159,7 @@
 				A02674F81B7AA05100A85890 /* BlogPostTableViewCell.h */,
 				A02674F91B7AA05100A85890 /* BlogPostTableViewCell.m */,
 				A02674FA1B7AA05100A85890 /* BlogPostTableViewCell.xib */,
+				A06AF4301B1E84330083C8C5 /* Supporting Files */,
 			);
 			path = ABFRealmSearchViewControllerExample;
 			sourceTree = "<group>";
@@ -540,10 +540,7 @@
 			baseConfigurationReference = 09871924272801CBF39ACA4E /* Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -560,10 +557,7 @@
 			baseConfigurationReference = 690A26942168AF76D74CCAC7 /* Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ABFRealmSearchViewControllerExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

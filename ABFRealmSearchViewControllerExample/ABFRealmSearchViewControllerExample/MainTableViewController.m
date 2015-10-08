@@ -108,6 +108,10 @@ static NSString *kABFSectionSearchBlogs = @"blogSearch";
         
         blogSearchViewController.useContainsSearch = YES;
         
+        // Sort results
+        blogSearchViewController.sortPropertyKey = @"date";
+        blogSearchViewController.sortAscending = NO;
+        
         [self.navigationController pushViewController:blogSearchViewController animated:YES];
     }
 }

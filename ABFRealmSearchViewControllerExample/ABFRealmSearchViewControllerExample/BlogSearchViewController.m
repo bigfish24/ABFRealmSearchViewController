@@ -14,6 +14,8 @@
 
 @interface BlogSearchViewController ()
 
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
 @end
 
 @implementation BlogSearchViewController
@@ -21,6 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    self.dateFormatter.dateStyle = NSDateFormatterShortStyle;
     
     self.title = @"Blogs";
     self.tableView.estimatedRowHeight = 88.f;
@@ -45,6 +50,8 @@
     cell.titleLabel.text = [blog.title capitalizedString];
     
     cell.contentLabel.text = blog.content;
+    
+    cell.dateLabel.text = [self.dateFormatter stringFromDate:blog.date];
     
     return cell;
 }

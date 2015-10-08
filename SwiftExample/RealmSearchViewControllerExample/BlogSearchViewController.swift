@@ -11,6 +11,13 @@ import RealmSwift
 import TOWebViewController
 
 class BlogSearchViewController: RealmSearchViewController {
+    
+    let dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        
+        return formatter
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +26,6 @@ class BlogSearchViewController: RealmSearchViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         self.tableView.registerNib(UINib(nibName: "BlogPostTableViewCell", bundle: nil), forCellReuseIdentifier: BlogCellIdentifier)
-        
-        // Uncomment to insert the search bar in the nav bar
-        //self.searchBarInTableView = false
-        //self.navigationItem.titleView = self.searchBar
     }
     
     override func searchViewController(controller: RealmSearchViewController, cellForObject object: Object, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -34,6 +37,8 @@ class BlogSearchViewController: RealmSearchViewController {
             cell.titleLabel.text = blog.title
             
             cell.contentLabel.text = blog.content
+            
+            cell.dateLabel.text = self.dateFormatter.stringFromDate(blog.date)
         }
         
         return cell

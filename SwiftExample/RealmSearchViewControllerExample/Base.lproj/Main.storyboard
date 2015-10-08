@@ -35,6 +35,8 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="entityName" value="BlogObject"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="searchPropertyKeyPath" value="title"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="useContainsSearch" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="sortAscending" value="NO"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sortPropertyKey" value="date"/>
                     </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqG-3v-lfF" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -71,6 +71,12 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// The keyPath on the entity that will be searched against.
     @IBInspectable public var searchPropertyKeyPath: String? {
         didSet {
+            
+            if self.searchPropertyKeyPath?.containsString(".") == false && self.sortPropertyKey == nil {
+                
+                self.sortPropertyKey = self.searchPropertyKeyPath
+            }
+            
             self.updateFetchedResultsController(self.basePredicate)
         }
     }
@@ -86,7 +92,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     ///
     /// By default this uses searchPropertyKeyPath if it is just a key.
     /// Realm currently doesn't support sorting by key path.
-    public var sortPropertyKey: String? {
+    @IBInspectable public var sortPropertyKey: String? {
         didSet {
             self.updateFetchedResultsController(self.basePredicate)
         }

@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blog Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJV-gK-LoD" userLabel="Title Label">
-                        <rect key="frame" x="50" y="8" width="208" height="20"/>
+                        <rect key="frame" x="50" y="8" width="204" height="20"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="qdp-nW-6Ze"/>
@@ -35,10 +35,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8/11/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brU-pZ-6Cw" userLabel="Date Label">
-                        <rect key="frame" x="262" y="10" width="50" height="16"/>
+                        <rect key="frame" x="258" y="10" width="54" height="16"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="Nk2-hi-Oc3"/>
+                            <constraint firstAttribute="width" constant="54" id="Nk2-hi-Oc3"/>
                             <constraint firstAttribute="height" constant="16" id="Q5x-md-8zH"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>

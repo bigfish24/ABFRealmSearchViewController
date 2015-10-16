@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RealmSearchViewController"
-  s.version      = "1.3"
+  s.version      = "1.4"
   s.summary      = "Drop-in text search interface for Realm Swift"
   s.description  = <<-DESC
 The RealmSearchViewController class creates a controller object that manages a table view and search bar to display and respond to input for text search against a Realm Swift object class.
@@ -12,7 +12,7 @@ The RealmSearchViewController class creates a controller object that manages a t
   s.source       = { :git => "https://github.com/bigfish24/ABFRealmSearchViewController.git", :tag => "v#{s.version}" }
   s.source_files  = "RealmSearchViewController/*.{swift}"
   s.requires_arc = true
-  s.dependency "RBQFetchedResultsController", ">= 2.3"
-  s.dependency "RealmSwift", ">= 0.95.1"
+  s.dependency "RBQFetchedResultsController", ">= 2.4"
+  s.dependency "RealmSwift", ">= 0.96"
 
 end

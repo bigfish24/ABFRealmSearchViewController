@@ -107,7 +107,7 @@ class BlogObject: Object {
                                 index += 1
                             }
                             
-                            realm.commitWrite()
+                            try! realm.commitWrite()
                         }
                     }
                 } catch {

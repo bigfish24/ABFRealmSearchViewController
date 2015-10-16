@@ -223,6 +223,7 @@
 				A06AF42A1B1E84330083C8C5 /* Frameworks */,
 				A06AF42B1B1E84330083C8C5 /* Resources */,
 				7FC3951DF68A990BAC0F6FE7 /* Copy Pods Resources */,
+				8FFE359B62588B8EA21B6D01 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,6 +243,7 @@
 				A06AF4431B1E84330083C8C5 /* Frameworks */,
 				A06AF4441B1E84330083C8C5 /* Resources */,
 				582CC2433DFA7E27596C171E /* Copy Pods Resources */,
+				784C59876E2E4AE3C6E0B82E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -344,6 +346,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		784C59876E2E4AE3C6E0B82E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7FC3951DF68A990BAC0F6FE7 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -357,6 +374,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FFE359B62588B8EA21B6D01 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A2A53A85648FF0594F1B78E2 /* Check Pods Manifest.lock */ = {

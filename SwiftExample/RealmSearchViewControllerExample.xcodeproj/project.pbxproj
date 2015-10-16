@@ -18,7 +18,7 @@
 		A0EF1AEF1BBE01D100DC7122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF1AEE1BBE01D100DC7122 /* Assets.xcassets */; };
 		A0EF1AF21BBE01D100DC7122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF1AF01BBE01D100DC7122 /* LaunchScreen.storyboard */; };
 		A0EF1AFA1BBEF22500DC7122 /* BlogObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF1AF91BBEF22500DC7122 /* BlogObject.swift */; };
-		D26CA625DAF93367679BEEDD /* Pods_RealmSearchViewControllerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4ECE17B43A3A26E8F16A77E /* Pods_RealmSearchViewControllerExample.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D26CA625DAF93367679BEEDD /* Pods_RealmSearchViewControllerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4ECE17B43A3A26E8F16A77E /* Pods_RealmSearchViewControllerExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */

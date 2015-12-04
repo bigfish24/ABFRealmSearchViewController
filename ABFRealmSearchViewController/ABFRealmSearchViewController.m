@@ -47,8 +47,13 @@ typedef void(^ABFBlock)();
     self.definesPresentationContext = YES;
     
     self.viewLoaded = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    [self updateFetchedResultsController:self.basePredicate];
+    [self refreshSearchResults];
 }
 
 #pragma mark - ABFRealmSearchViewController Initializiation
@@ -206,22 +211,7 @@ typedef void(^ABFBlock)();
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
-    NSString *searchString = searchController.searchBar.text;
-    
-    NSPredicate *predicate = [self searchPredicateWithText:searchString];
-    
-    typeof(self) __weak weakSelf = self;
-    
-    NSBlockOperation *searchOperation = [NSBlockOperation blockOperationWithBlock:^() {
-        
-        [weakSelf updateFetchedResultsController:predicate];
-    }];
-    
-    // Remove any pending searches
-    [self.searchQueue cancelAllOperations];
-    
-    // Perform the most recent search
-    [self.searchQueue addOperation:searchOperation];
+    [self refreshSearchResults];
 }
 
 #pragma mark - <UITableViewDelegate>
@@ -240,6 +230,8 @@ typedef void(^ABFBlock)();
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if ([self.resultsDelegate respondsToSelector:@selector(searchViewController:didSelectObject:atIndexPath:)]) {
         
         id object = [self.fetchResultsController objectAtIndexPath:indexPath];
@@ -280,6 +272,7 @@ typedef void(^ABFBlock)();
                             cellForObject:(id)anObject
                               atIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"You need to implement searchViewController:cellForObject:atIndexPath:");
     return nil;
 }
 
@@ -307,7 +300,7 @@ typedef void(^ABFBlock)();
 {
     _entityName = entityName;
     
-    [self updateFetchedResultsController:self.basePredicate];
+    [self refreshSearchResults];
 }
 
 
@@ -315,67 +308,87 @@ typedef void(^ABFBlock)();
 {
     _searchPropertyKeyPath = searchPropertyKeyPath;
     
-    [self updateFetchedResultsController:self.basePredicate];
+    [self refreshSearchResults];
 }
 
 - (void)setBasePredicate:(NSPredicate *)basePredicate
 {
     _basePredicate = basePredicate;
     
-    [self updateFetchedResultsController:self.basePredicate];
+    [self refreshSearchResults];
 }
 
 - (void)setSortPropertyKey:(NSString *)sortPropertyKey
 {
     _sortPropertyKey = sortPropertyKey;
     
-    [self updateFetchedResultsController:self.basePredicate];
+    [self refreshSearchResults];
 }
 
 - (void)setSortAscending:(BOOL)sortAscending
 {
     _sortAscending = sortAscending;
     
-    [self updateFetchedResultsController:self.basePredicate];
+    [self refreshSearchResults];
 }
 
 - (void)setCaseInsensitiveSearch:(BOOL)caseInsensitiveSearch
 {
     _caseInsensitiveSearch = caseInsensitiveSearch;
     
-    [self updateFetchedResultsController:self.basePredicate];
+    [self refreshSearchResults];
 }
 
 - (void)setUseContainsSearch:(BOOL)useContainsSearch
 {
     _useContainsSearch = useContainsSearch;
     
-    [self updateFetchedResultsController:self.basePredicate];
+    [self refreshSearchResults];
 }
 
-#pragma mark - Private
+#pragma mark - Public Instance
+
+- (void)refreshSearchResults
+{
+    NSString *searchString = self.searchController.searchBar.text;
+    
+    NSPredicate *predicate = [self searchPredicateWithText:searchString];
+    
+    typeof(self) __weak weakSelf = self;
+    
+    NSBlockOperation *searchOperation = [NSBlockOperation blockOperationWithBlock:^() {
+        
+        [weakSelf updateFetchedResultsController:predicate];
+    }];
+    
+    // Remove any pending searches
+    [self.searchQueue cancelAllOperations];
+    
+    // Perform the most recent search
+    [self.searchQueue addOperation:searchOperation];
+}
+
+#pragma mark - Private Instance
 
 - (void)updateFetchedResultsController:(NSPredicate *)predicate
 {
-    @synchronized(self) {
-        RBQFetchRequest *fetchRequest = [self searchFetchRequestWithEntityName:self.entityName
-                                                                       inRealm:self.realm
-                                                                     predicate:predicate
-                                                               sortPropertyKey:self.sortPropertyKey
-                                                                 sortAscending:self.sortAscending];
+    RBQFetchRequest *fetchRequest = [self searchFetchRequestWithEntityName:self.entityName
+                                                                   inRealm:self.realm
+                                                                 predicate:predicate
+                                                           sortPropertyKey:self.sortPropertyKey
+                                                             sortAscending:self.sortAscending];
+    
+    if (fetchRequest) {
+        [self.fetchResultsController updateFetchRequest:fetchRequest
+                                     sectionNameKeyPath:nil
+                                         andPeformFetch:self.viewLoaded];
         
-        if (fetchRequest) {
-            [self.fetchResultsController updateFetchRequest:fetchRequest
-                                         sectionNameKeyPath:nil
-                                             andPeformFetch:self.viewLoaded];
+        if (self.viewLoaded) {
             
-            if (self.viewLoaded) {
-                
-                typeof(self) __weak weakSelf = self;
-                [self runOnMainThread:^{
-                    [weakSelf.tableView reloadData];
-                }];
-            }
+            typeof(self) __weak weakSelf = self;
+            [self runOnMainThread:^{
+                [weakSelf.tableView reloadData];
+            }];
         }
     }
 }

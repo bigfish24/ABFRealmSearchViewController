@@ -217,4 +217,9 @@
                              basePredicate:(nullable NSPredicate *)basePredicate
                             tableViewStyle:(UITableViewStyle)style;
 
+/**
+ *  Performs the search again with the current text input and base predicate
+ */
+- (void)refreshSearchResults;
+
 @end

@@ -64,7 +64,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// The entity (Realm object) name
     @IBInspectable public var entityName: String? {
         didSet {
-            self.updateFetchedResultsController(self.basePredicate)
+            self.refreshSearchResults()
         }
     }
     
@@ -77,14 +77,14 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
                 self.sortPropertyKey = self.searchPropertyKeyPath
             }
             
-            self.updateFetchedResultsController(self.basePredicate)
+            self.refreshSearchResults()
         }
     }
     
     /// The base predicate, used when the search bar text is blank. Can be nil.
     public var basePredicate: NSPredicate? {
         didSet {
-            self.updateFetchedResultsController(self.basePredicate)
+            self.refreshSearchResults()
         }
     }
     
@@ -94,7 +94,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Realm currently doesn't support sorting by key path.
     @IBInspectable public var sortPropertyKey: String? {
         didSet {
-            self.updateFetchedResultsController(self.basePredicate)
+            self.refreshSearchResults()
         }
     }
     
@@ -103,7 +103,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Default is YES
     @IBInspectable var sortAscending: Bool = true {
         didSet {
-            self.updateFetchedResultsController(self.basePredicate)
+            self.refreshSearchResults()
         }
     }
     
@@ -117,7 +117,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Default is YES
     @IBInspectable var caseInsensitiveSearch: Bool = true {
         didSet {
-            self.updateFetchedResultsController(self.basePredicate)
+            self.refreshSearchResults()
         }
     }
     
@@ -126,7 +126,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Default is NO
     @IBInspectable var useContainsSearch: Bool = false {
         didSet {
-            self.updateFetchedResultsController(self.basePredicate)
+            self.refreshSearchResults()
         }
     }
     
@@ -154,6 +154,26 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// The search bar for the controller
     public var searchBar: UISearchBar {
         return self.searchController.searchBar
+    }
+    
+    // MARK: Public Methods
+    
+    /// Performs the search again with the current text input and base predicate
+    public func refreshSearchResults() {
+        let searchString = self.searchController.searchBar.text
+        
+        let predicate = self.searchPredicate(searchString)
+        
+        let searchOperation = NSBlockOperation { [weak self] () -> Void in
+            
+            if let strongSelf = self {
+                strongSelf.updateFetchedResultsController(predicate)
+            }
+        }
+        
+        self.searchQueue.cancelAllOperations()
+        
+        self.searchQueue.addOperation(searchOperation)
     }
     
     // MARK: Initialization
@@ -195,8 +215,12 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         }
         
         self.definesPresentationContext = true
+    }
+    
+    override public func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.updateFetchedResultsController(self.basePredicate)
+        self.refreshSearchResults()
     }
     
     // MARK: RealmSearchResultsDataSource
@@ -248,7 +272,6 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     }
     
     private func updateFetchedResultsController(predicate: NSPredicate?) {
-        objc_sync_enter(self)
         if let fetchRequest = self.searchFetchRequest(self.entityName, inRealm: self.rlmRealm, predicate: predicate, sortPropertyKey: self.sortPropertyKey, sortAscending: self.sortAscending) {
             
             self.fetchedResultsController.updateFetchRequest(fetchRequest, sectionNameKeyPath: nil, andPeformFetch: true)
@@ -256,10 +279,9 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
             if self.viewLoaded {
                 self.runOnMainThread({ [weak self] () -> Void in
                     self?.tableView.reloadData()
-                })
+                    })
             }
         }
-        objc_sync_exit(self)
     }
     
     private func searchPredicate(text: String?) -> NSPredicate? {
@@ -347,6 +369,8 @@ extension RealmSearchViewController {
     }
     
     public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Object
         
         self.resultsDelegate.searchViewController(self, didSelectObject: object, atIndexPath: indexPath)
@@ -377,19 +401,6 @@ extension RealmSearchViewController {
 // MARK: UISearchResultsUpdating
 extension RealmSearchViewController: UISearchResultsUpdating {
     public func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let searchString = searchController.searchBar.text
-        
-        let predicate = self.searchPredicate(searchString)
-        
-        let searchOperation = NSBlockOperation { [weak self] () -> Void in
-            
-            if let strongSelf = self {
-                strongSelf.updateFetchedResultsController(predicate)
-            }
-        }
-        
-        self.searchQueue.cancelAllOperations()
-        
-        self.searchQueue.addOperation(searchOperation)
+        self.refreshSearchResults()
     }
 }

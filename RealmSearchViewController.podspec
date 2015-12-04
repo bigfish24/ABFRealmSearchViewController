@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RealmSearchViewController"
-  s.version      = "1.4"
+  s.version      = "1.5"
   s.summary      = "Drop-in text search interface for Realm Swift"
   s.description  = <<-DESC
 The RealmSearchViewController class creates a controller object that manages a table view and search bar to display and respond to input for text search against a Realm Swift object class.

@@ -101,7 +101,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Defines whether the search results are sorted ascending
     ///
     /// Default is YES
-    @IBInspectable var sortAscending: Bool = true {
+    @IBInspectable public var sortAscending: Bool = true {
         didSet {
             self.refreshSearchResults()
         }
@@ -110,12 +110,12 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Defines whether the search bar is inserted into the table view header
     ///
     /// Default is YES
-    @IBInspectable var searchBarInTableView: Bool = true
+    @IBInspectable public var searchBarInTableView: Bool = true
     
     /// Defines whether the text search is case insensitive
     ///
     /// Default is YES
-    @IBInspectable var caseInsensitiveSearch: Bool = true {
+    @IBInspectable public var caseInsensitiveSearch: Bool = true {
         didSet {
             self.refreshSearchResults()
         }
@@ -124,7 +124,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Defines whether the text input uses a CONTAINS filter or just BEGINSWITH.
     ///
     /// Default is NO
-    @IBInspectable var useContainsSearch: Bool = false {
+    @IBInspectable public var useContainsSearch: Bool = false {
         didSet {
             self.refreshSearchResults()
         }
@@ -178,16 +178,16 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     
     // MARK: Initialization
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         resultsDataSource = self
         resultsDelegate = self
     }
     
-    override init(style: UITableViewStyle) {
+    override public init(style: UITableViewStyle) {
         super.init(style: style)
-        
+
         resultsDataSource = self
         resultsDelegate = self
     }

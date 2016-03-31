@@ -260,7 +260,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         return controller
     }()
     
-    private lazy var fetchedResultsController: RBQFetchedResultsController = {
+    public lazy var fetchedResultsController: RBQFetchedResultsController = {
         let controller = RBQFetchedResultsController()
         return controller
     }()

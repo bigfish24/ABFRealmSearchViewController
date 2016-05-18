@@ -274,7 +274,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     private func updateFetchedResultsController(predicate: NSPredicate?) {
         if let fetchRequest = self.searchFetchRequest(self.entityName, inRealm: self.rlmRealm, predicate: predicate, sortPropertyKey: self.sortPropertyKey, sortAscending: self.sortAscending) {
             
-            self.fetchedResultsController.updateFetchRequest(fetchRequest, sectionNameKeyPath: nil, andPeformFetch: true)
+            self.fetchedResultsController.updateFetchRequest(fetchRequest, sectionNameKeyPath: nil, andPerformFetch: true)
             
             if self.viewLoaded {
                 self.runOnMainThread({ [weak self] () -> Void in

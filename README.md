@@ -6,8 +6,6 @@ _**This allows for the creation of a text search interface in as little as 27 li
 
 _[Realm Swift](https://realm.io/docs/swift/latest/) support was added in version 1.3 with an identical API._
 
-The class performs the text search on a background thread (via [RBQFetchedResultsController](https://github.com/Roobiq/RBQFetchedResultsController)) allowing for non-blocking as-you-type searching.
-
 The controller is meant to be subclassed. By default the `resultsDataSource` and `resultsDelegate` protocols are set as `self`, so that the subclass can implement these methods.
 
 ####Documentation

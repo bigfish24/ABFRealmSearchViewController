@@ -34,7 +34,7 @@ static NSString *kABFSectionSearchBlogs = @"blogSearch";
     
     self.sections = [NSMutableArray arrayWithObjects:kABFSectionSearchRestaurants,kABFSectionSearchBlogs, nil];
     
-    RLMRealm *restaurantRealm = [RLMRealm realmWithPath:ABFRestaurantScoresPath()];
+    RLMRealm *restaurantRealm = [RLMRealm realmWithURL:[NSURL fileURLWithPath:ABFRestaurantScoresPath()]];
     
     RLMResults *restaurants = [ABFRestaurantObject allObjectsInRealm:restaurantRealm];
     
@@ -90,7 +90,7 @@ static NSString *kABFSectionSearchBlogs = @"blogSearch";
     
     if ([sectionString isEqualToString:kABFSectionSearchRestaurants]) {
         
-        RLMRealm *restaurantRealm = [RLMRealm realmWithPath:ABFRestaurantScoresPath()];
+        RLMRealm *restaurantRealm = [RLMRealm realmWithURL:[NSURL fileURLWithPath:ABFRestaurantScoresPath()]];
         
         RestaurantSearchViewController *restaurantSearchViewController =
         [[RestaurantSearchViewController alloc] initWithEntityName:@"ABFRestaurantObject"

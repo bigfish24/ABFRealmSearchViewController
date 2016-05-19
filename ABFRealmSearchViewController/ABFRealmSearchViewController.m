@@ -9,18 +9,15 @@
 #import "ABFRealmSearchViewController.h"
 
 #import <Realm/Realm.h>
-#import <RBQFetchedResultsController/RBQFetchedResultsController.h>
-#import <RBQFetchedResultsController/RBQFetchRequest.h>
+#import <Realm/RLMRealm_Dynamic.h>
 
 typedef void(^ABFBlock)();
 
 @interface ABFRealmSearchViewController () <UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) RBQFetchedResultsController *fetchResultsController;
+@property (strong, nonatomic) RLMNotificationToken *token;
 
 @property (strong, nonatomic) UISearchController *searchController;
-
-@property (strong, nonatomic) NSOperationQueue *searchQueue;
 
 @property (strong, nonatomic) RLMRealmConfiguration *realmConfiguration;
 
@@ -29,7 +26,8 @@ typedef void(^ABFBlock)();
 @end
 
 @implementation ABFRealmSearchViewController
-@synthesize sortPropertyKey = _sortPropertyKey;
+@synthesize sortPropertyKey = _sortPropertyKey,
+results = _results;
 
 #pragma mark - UIKit
 
@@ -192,19 +190,12 @@ typedef void(^ABFBlock)();
     
     _realmConfiguration = [RLMRealmConfiguration defaultConfiguration];
     
-    // Create the FRC
-    _fetchResultsController = [[RBQFetchedResultsController alloc] init];
-    
     // Create the search controller
     _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     _searchController.searchResultsUpdater = self;
     _searchController.dimsBackgroundDuringPresentation = NO;
     
     _searchBar = _searchController.searchBar;
-    
-    // Search queue
-    _searchQueue = [[NSOperationQueue alloc] init];
-    _searchQueue.maxConcurrentOperationCount = 1;
 }
 
 #pragma mark - <UISearchResultsUpdating>
@@ -220,7 +211,7 @@ typedef void(^ABFBlock)();
 {
     if ([self.resultsDelegate respondsToSelector:@selector(searchViewController:willSelectObject:atIndexPath:)]) {
         
-        id object = [self.fetchResultsController objectAtIndexPath:indexPath];
+        id object = [self.results objectAtIndex:indexPath.row];
         
         [self.resultsDelegate searchViewController:self willSelectObject:object atIndexPath:indexPath];
     }
@@ -234,7 +225,7 @@ typedef void(^ABFBlock)();
     
     if ([self.resultsDelegate respondsToSelector:@selector(searchViewController:didSelectObject:atIndexPath:)]) {
         
-        id object = [self.fetchResultsController objectAtIndexPath:indexPath];
+        id object = [self.results objectAtIndex:indexPath.row];
         
         [self.resultsDelegate searchViewController:self didSelectObject:object atIndexPath:indexPath];
     }
@@ -245,19 +236,19 @@ typedef void(^ABFBlock)();
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [self.fetchResultsController numberOfSections];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     
-    return [self.fetchResultsController numberOfRowsForSectionIndex:section];
+    return self.results.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id object = [self.fetchResultsController objectAtIndexPath:indexPath];
+    id object = [self.results objectAtIndex:indexPath.row];
     
     UITableViewCell *cell = [self.resultsDataSource searchViewController:self
                                                            cellForObject:object
@@ -354,42 +345,46 @@ typedef void(^ABFBlock)();
     
     NSPredicate *predicate = [self searchPredicateWithText:searchString];
     
-    typeof(self) __weak weakSelf = self;
-    
-    NSBlockOperation *searchOperation = [NSBlockOperation blockOperationWithBlock:^() {
-        
-        [weakSelf updateFetchedResultsController:predicate];
-    }];
-    
-    // Remove any pending searches
-    [self.searchQueue cancelAllOperations];
-    
-    // Perform the most recent search
-    [self.searchQueue addOperation:searchOperation];
+    [self updateResultsWithPredicate:predicate];
 }
 
 #pragma mark - Private Instance
 
-- (void)updateFetchedResultsController:(NSPredicate *)predicate
+- (void)updateResultsWithPredicate:(NSPredicate *)predicate
 {
-    RBQFetchRequest *fetchRequest = [self searchFetchRequestWithEntityName:self.entityName
-                                                                   inRealm:self.realm
-                                                                 predicate:predicate
-                                                           sortPropertyKey:self.sortPropertyKey
-                                                             sortAscending:self.sortAscending];
+    RLMResults *results = [self searchResultsWithEntityName:self.entityName
+                                                    inRealm:self.realm
+                                                  predicate:predicate
+                                            sortPropertyKey:self.sortPropertyKey
+                                              sortAscending:self.sortAscending];
     
-    if (fetchRequest) {
-        [self.fetchResultsController updateFetchRequest:fetchRequest
-                                     sectionNameKeyPath:nil
-                                         andPerformFetch:self.viewLoaded];
-        
-        if (self.viewLoaded) {
+    if (results) {
+        __weak typeof(self) weakSelf = self;
+        self.token = [results addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
+            if (error ||
+                !weakSelf.viewLoaded) {
+                return;
+            }
             
-            typeof(self) __weak weakSelf = self;
-            [self runOnMainThread:^{
-                [weakSelf.tableView reloadData];
-            }];
-        }
+            _results = results;
+            
+            UITableView *tableView = weakSelf.tableView;
+            // Initial run of the query will pass nil for the change information
+            if (!change) {
+                [tableView reloadData];
+                return;
+            }
+            
+            // Query results have changed, so apply them to the UITableView
+            [tableView beginUpdates];
+            [tableView deleteRowsAtIndexPaths:[change deletionsInSection:0]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView insertRowsAtIndexPaths:[change insertionsInSection:0]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView reloadRowsAtIndexPaths:[change modificationsInSection:0]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView endUpdates];
+        }];
     }
 }
 
@@ -422,26 +417,24 @@ typedef void(^ABFBlock)();
     return self.basePredicate;
 }
 
-- (RBQFetchRequest *)searchFetchRequestWithEntityName:(NSString *)entityName
-                                              inRealm:(RLMRealm *)realm
-                                            predicate:(NSPredicate *)predicate
-                                      sortPropertyKey:(NSString *)sortPropertyKey
-                                        sortAscending:(BOOL)sortAscending
+- (RLMResults *)searchResultsWithEntityName:(NSString *)entityName
+                                    inRealm:(RLMRealm *)realm
+                                  predicate:(NSPredicate *)predicate
+                            sortPropertyKey:(NSString *)sortPropertyKey
+                              sortAscending:(BOOL)sortAscending
 {
     if (entityName && realm) {
-        RBQFetchRequest *fetchRequest = [RBQFetchRequest fetchRequestWithEntityName:entityName
-                                                                            inRealm:realm
-                                                                          predicate:predicate];
+        RLMResults *results = [realm objects:entityName withPredicate:predicate];
         
         if (self.sortPropertyKey) {
             
             RLMSortDescriptor *sort = [RLMSortDescriptor sortDescriptorWithProperty:sortPropertyKey
                                                                           ascending:sortAscending];
             
-            fetchRequest.sortDescriptors = @[sort];
+            results = [results sortedResultsUsingDescriptors:@[sort]];
         }
         
-        return fetchRequest;
+        return results;
     }
     
     return nil;

@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@class ABFRealmSearchViewController, RLMRealm;
+@class ABFRealmSearchViewController, RLMRealm, RLMResults;
 
 /**
  *  Method(s) to retrieve data from a data source
@@ -84,6 +84,11 @@
  *  The Realm in which the given entity is being searched against in
  */
 @property (nonatomic, readonly, nonnull) RLMRealm *realm;
+
+/**
+ *  The underlying search results
+ */
+@property (nonatomic, readonly, nullable) RLMResults *results;
 
 /**
  *  The search bar for the controller

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Realm
+import Realm.Dynamic
 import RealmSwift
-import RBQFetchedResultsController
 
 // MARK: Protocols
 
@@ -151,6 +152,9 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         return try! Realm(configuration: self.realmConfiguration)
     }
     
+    /// The underlying search results
+    public var results: RLMResults?
+    
     /// The search bar for the controller
     public var searchBar: UISearchBar {
         return self.searchController.searchBar
@@ -164,16 +168,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         
         let predicate = self.searchPredicate(searchString)
         
-        let searchOperation = NSBlockOperation { [weak self] () -> Void in
-            
-            if let strongSelf = self {
-                strongSelf.updateFetchedResultsController(predicate)
-            }
-        }
-        
-        self.searchQueue.cancelAllOperations()
-        
-        self.searchQueue.addOperation(searchOperation)
+        self.updateResults(predicate)
     }
     
     // MARK: Initialization
@@ -245,12 +240,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     
     private var internalConfiguration: Realm.Configuration?
     
-    private let searchQueue: NSOperationQueue = {
-        let queue = NSOperationQueue()
-        queue.maxConcurrentOperationCount = 1
-        
-        return queue
-    }()
+    private var token: RLMNotificationToken!
     
     private lazy var searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: nil)
@@ -260,27 +250,41 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         return controller
     }()
     
-    public lazy var fetchedResultsController: RBQFetchedResultsController = {
-        let controller = RBQFetchedResultsController()
-        return controller
-    }()
-    
     private var rlmRealm: RLMRealm {
         let configuration = self.toRLMConfiguration(self.realmConfiguration)
         
         return try! RLMRealm(configuration: configuration)
     }
     
-    private func updateFetchedResultsController(predicate: NSPredicate?) {
-        if let fetchRequest = self.searchFetchRequest(self.entityName, inRealm: self.rlmRealm, predicate: predicate, sortPropertyKey: self.sortPropertyKey, sortAscending: self.sortAscending) {
+    private func updateResults(predicate: NSPredicate?) {
+        if let results = self.searchResults(self.entityName, inRealm: self.rlmRealm, predicate: predicate, sortPropertyKey: self.sortPropertyKey, sortAscending: self.sortAscending) {
             
-            self.fetchedResultsController.updateFetchRequest(fetchRequest, sectionNameKeyPath: nil, andPerformFetch: true)
-            
-            if self.viewLoaded {
-                self.runOnMainThread({ [weak self] () -> Void in
-                    self?.tableView.reloadData()
-                    })
-            }
+            self.token = results.addNotificationBlock({ [weak self] (results, change, error) in
+                if let weakSelf = self {
+                    if (error != nil || !weakSelf.viewLoaded) {
+                        return
+                    }
+                    
+                    weakSelf.results = results
+                    
+                    let tableView = weakSelf.tableView
+                    
+                    // Initial run of the query will pass nil for the change information
+                    if change == nil {
+                        tableView.reloadData()
+                        return
+                    }
+                    
+                    // Query results have changed, so apply them to the UITableView
+                    else if let aChange = change {
+                        tableView.beginUpdates()
+                        tableView.deleteRowsAtIndexPaths(aChange.deletionsInSection(0), withRowAnimation: .Automatic)
+                        tableView.insertRowsAtIndexPaths(aChange.insertionsInSection(0), withRowAnimation: .Automatic)
+                        tableView.reloadRowsAtIndexPaths(aChange.modificationsInSection(0), withRowAnimation: .Automatic)
+                        tableView.endUpdates()
+                    }
+                }
+            })
         }
     }
     
@@ -310,20 +314,20 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         return self.basePredicate
     }
     
-    private func searchFetchRequest(entityName: String?, inRealm realm: RLMRealm?, predicate: NSPredicate?, sortPropertyKey: String?, sortAscending: Bool) -> RBQFetchRequest? {
+    private func searchResults(entityName: String?, inRealm realm: RLMRealm?, predicate: NSPredicate?, sortPropertyKey: String?, sortAscending: Bool) -> RLMResults? {
         
         if entityName != nil && realm != nil {
             
-            let fetchRequest = RBQFetchRequest(entityName: entityName!, inRealm: realm!, predicate: predicate)
+            var results = realm?.objects(entityName, withPredicate: predicate)
             
             if (sortPropertyKey != nil) {
                 
                 let sort = RLMSortDescriptor(property: sortPropertyKey!, ascending: sortAscending)
                 
-                fetchRequest.sortDescriptors = [sort]
+                results = results?.sortedResultsUsingDescriptors([sort])
             }
             
-            return fetchRequest
+            return results
         }
         
         return nil
@@ -332,8 +336,8 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     private func toRLMConfiguration(configuration: Realm.Configuration) -> RLMRealmConfiguration {
         let rlmConfiguration = RLMRealmConfiguration()
         
-        if (configuration.path != nil) {
-            rlmConfiguration.path = configuration.path
+        if (configuration.fileURL != nil) {
+            rlmConfiguration.fileURL = configuration.fileURL
         }
         
         if (configuration.inMemoryIdentifier != nil) {
@@ -361,34 +365,49 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
 // MARK: UITableViewDelegate
 extension RealmSearchViewController {
     public override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Object
+        if let results = self.results {
+            let baseObject = results.objectAtIndex(UInt(indexPath.row)) as RLMObjectBase
+            let object = baseObject as! Object
+            
+            self.resultsDelegate.searchViewController(self, willSelectObject: object, atIndexPath: indexPath)
+            
+            return indexPath
+        }
         
-        self.resultsDelegate.searchViewController(self, willSelectObject: object, atIndexPath: indexPath)
-        
-        return indexPath
+        return nil
     }
     
     public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Object
-        
-        self.resultsDelegate.searchViewController(self, didSelectObject: object, atIndexPath: indexPath)
+        if let results = self.results {
+            let baseObject = results.objectAtIndex(UInt(indexPath.row)) as RLMObjectBase
+            let object = baseObject as! Object
+            
+            self.resultsDelegate.searchViewController(self, didSelectObject: object, atIndexPath: indexPath)
+        }
     }
 }
 
 // MARK: UITableViewControllerDataSource
 extension RealmSearchViewController {
     public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.fetchedResultsController.numberOfSections()
+        return 1
     }
     
     public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.fetchedResultsController.numberOfRowsForSectionIndex(section)
+        if let results = self.results {
+            return Int(results.count)
+        }
+        
+        return 0
     }
     
     public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Object {
+        if let results = self.results {
+            let baseObject = results.objectAtIndex(UInt(indexPath.row)) as RLMObjectBase
+            let object = baseObject as! Object
+            
             let cell = self.resultsDataSource.searchViewController(self, cellForObject: object, atIndexPath: indexPath)
             
             return cell

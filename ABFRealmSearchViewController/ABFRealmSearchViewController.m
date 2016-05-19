@@ -381,7 +381,7 @@ typedef void(^ABFBlock)();
     if (fetchRequest) {
         [self.fetchResultsController updateFetchRequest:fetchRequest
                                      sectionNameKeyPath:nil
-                                         andPeformFetch:self.viewLoaded];
+                                         andPerformFetch:self.viewLoaded];
         
         if (self.viewLoaded) {
             

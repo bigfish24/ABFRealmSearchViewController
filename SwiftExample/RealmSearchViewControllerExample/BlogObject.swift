@@ -58,7 +58,7 @@ class BlogObject: Object {
     }
     
     // MARK: Type Functions
-    static func loadBlogData() {
+    static func loadBlogData(realm: Realm? = try? Realm()) {
         if let jsonFilePath = NSBundle.mainBundle().pathForResource("blog", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: jsonFilePath) {
                 
@@ -72,7 +72,7 @@ class BlogObject: Object {
                     
                     if let jsonArray = jsonObject as? [NSDictionary] {
                         
-                        if let realm = try? Realm() {
+                        if let realm = realm {
                             
                             realm.beginWrite()
                             

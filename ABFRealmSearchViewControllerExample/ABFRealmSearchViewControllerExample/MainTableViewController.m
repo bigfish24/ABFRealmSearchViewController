@@ -10,12 +10,14 @@
 #import "RestaurantSearchViewController.h"
 #import "BlogObject.h"
 #import "BlogSearchViewController.h"
+#import "ReadOnlyBlogSearchViewController.h"
 
 #import <Realm/Realm.h>
 #import <RealmSFRestaurantData/SFRestaurantScores.h>
 
 static NSString *kABFSectionSearchRestaurants = @"restaurantSearch";
 static NSString *kABFSectionSearchBlogs = @"blogSearch";
+static NSString *kABFSectionReadOnlySearchBlogs = @"readOnlyBlogSearch";
 
 @interface MainTableViewController ()
 
@@ -32,7 +34,7 @@ static NSString *kABFSectionSearchBlogs = @"blogSearch";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.sections = [NSMutableArray arrayWithObjects:kABFSectionSearchRestaurants,kABFSectionSearchBlogs, nil];
+    self.sections = [NSMutableArray arrayWithObjects:kABFSectionSearchRestaurants,kABFSectionSearchBlogs,kABFSectionReadOnlySearchBlogs, nil];
     
     RLMRealm *restaurantRealm = [RLMRealm realmWithURL:[NSURL fileURLWithPath:ABFRestaurantScoresPath()]];
     
@@ -43,6 +45,13 @@ static NSString *kABFSectionSearchBlogs = @"blogSearch";
     self.numberOfRestaurants = restaurants.count;
     
     self.numberOfBlogs = blogs.count;
+}
+
+-(void)generateReadOnlyRealmWithConfig:(RLMRealmConfiguration *)config
+{
+    RLMRealm *realm = [RLMRealm realmWithConfiguration:config error:nil];
+    [BlogObject loadBlogDataWithRealm:realm];
+    [NSException raise:@"Realm created" format:@"ReadOnly realm successfully created. Comment out the 'generateReadOnlyRealmWithConfig' function in the tableView didSelectRowAtIndexPath method and run again."];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,6 +84,12 @@ static NSString *kABFSectionSearchBlogs = @"blogSearch";
     else if ([sectionString isEqualToString:kABFSectionSearchBlogs]) {
         
         cell.textLabel.text = @"Realm Blogs";
+        
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.numberOfBlogs];
+    }
+    else if ([sectionString isEqualToString:kABFSectionReadOnlySearchBlogs]) {
+        
+        cell.textLabel.text = @"Read-only blogs";
         
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.numberOfBlogs];
     }
@@ -113,6 +128,27 @@ static NSString *kABFSectionSearchBlogs = @"blogSearch";
         blogSearchViewController.sortAscending = NO;
         
         [self.navigationController pushViewController:blogSearchViewController animated:YES];
+    }
+    else if ([sectionString isEqualToString:kABFSectionReadOnlySearchBlogs]) {
+        RLMRealmConfiguration *readOnlyConfig = [RLMRealmConfiguration defaultConfiguration];
+        readOnlyConfig.fileURL = readOnlyConfig.fileURL.URLByDeletingLastPathComponent;
+        readOnlyConfig.fileURL = [NSURL URLWithString:@"readonly.realm" relativeToURL:readOnlyConfig.fileURL];
+        
+        // Generate the test realm
+        // **COMMENT OUT THIS LINE AFTER GENERATING THE READ-ONLY REALM**
+        //[self generateReadOnlyRealmWithConfig:readOnlyConfig];
+        
+        readOnlyConfig.readOnly = YES;
+        
+        ReadOnlyBlogSearchViewController *readOnlySearchViewController =
+        [[ReadOnlyBlogSearchViewController alloc] initWithEntityName:@"BlogObject"
+                                                             inRealm:[RLMRealm realmWithConfiguration:readOnlyConfig error:nil]
+                                               searchPropertyKeyPath:@"title"];
+        readOnlySearchViewController.useContainsSearch = YES;
+        readOnlySearchViewController.sortPropertyKey = @"date";
+        readOnlySearchViewController.sortAscending = NO;
+        
+        [self.navigationController pushViewController:readOnlySearchViewController animated:YES];
     }
 }
 

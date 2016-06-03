@@ -21,7 +21,7 @@
     
     // Load Blog Data
     if ([BlogObject allObjects].count == 0) {
-        [BlogObject loadBlogData];
+        [BlogObject loadBlogDataWithRealm:[RLMRealm defaultRealm]];
     }
 
     return YES;

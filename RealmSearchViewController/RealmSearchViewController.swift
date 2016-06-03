@@ -240,7 +240,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     
     private var internalConfiguration: Realm.Configuration?
     
-    private var token: RLMNotificationToken!
+    private var token: RLMNotificationToken?
     
     private lazy var searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: nil)
@@ -256,8 +256,18 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         return try! RLMRealm(configuration: configuration)
     }
     
+    private var isReadOnly: Bool {
+        return self.realmConfiguration.readOnly
+    }
+    
     private func updateResults(predicate: NSPredicate?) {
         if let results = self.searchResults(self.entityName, inRealm: self.rlmRealm, predicate: predicate, sortPropertyKey: self.sortPropertyKey, sortAscending: self.sortAscending) {
+            
+            guard !isReadOnly else {
+                self.results = results
+                self.tableView.reloadData()
+                return
+            }
             
             self.token = results.addNotificationBlock({ [weak self] (results, change, error) in
                 if let weakSelf = self {

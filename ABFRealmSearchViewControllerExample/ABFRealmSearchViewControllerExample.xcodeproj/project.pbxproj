@@ -218,12 +218,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A06AF4501B1E84330083C8C5 /* Build configuration list for PBXNativeTarget "ABFRealmSearchViewControllerExample" */;
 			buildPhases = (
-				3E3D8D5DEBCF448C85373A67 /* Check Pods Manifest.lock */,
+				3E3D8D5DEBCF448C85373A67 /* 📦 Check Pods Manifest.lock */,
 				A06AF4291B1E84330083C8C5 /* Sources */,
 				A06AF42A1B1E84330083C8C5 /* Frameworks */,
 				A06AF42B1B1E84330083C8C5 /* Resources */,
-				7FC3951DF68A990BAC0F6FE7 /* Copy Pods Resources */,
-				8FFE359B62588B8EA21B6D01 /* Embed Pods Frameworks */,
+				7FC3951DF68A990BAC0F6FE7 /* 📦 Copy Pods Resources */,
+				8FFE359B62588B8EA21B6D01 /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,12 +238,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A06AF4531B1E84330083C8C5 /* Build configuration list for PBXNativeTarget "ABFRealmSearchViewControllerExampleTests" */;
 			buildPhases = (
-				A2A53A85648FF0594F1B78E2 /* Check Pods Manifest.lock */,
+				A2A53A85648FF0594F1B78E2 /* 📦 Check Pods Manifest.lock */,
 				A06AF4421B1E84330083C8C5 /* Sources */,
 				A06AF4431B1E84330083C8C5 /* Frameworks */,
 				A06AF4441B1E84330083C8C5 /* Resources */,
-				582CC2433DFA7E27596C171E /* Copy Pods Resources */,
-				784C59876E2E4AE3C6E0B82E /* Embed Pods Frameworks */,
+				582CC2433DFA7E27596C171E /* 📦 Copy Pods Resources */,
+				784C59876E2E4AE3C6E0B82E /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,14 +316,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3E3D8D5DEBCF448C85373A67 /* Check Pods Manifest.lock */ = {
+		3E3D8D5DEBCF448C85373A67 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,14 +331,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		582CC2433DFA7E27596C171E /* Copy Pods Resources */ = {
+		582CC2433DFA7E27596C171E /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,14 +346,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		784C59876E2E4AE3C6E0B82E /* Embed Pods Frameworks */ = {
+		784C59876E2E4AE3C6E0B82E /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,14 +361,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7FC3951DF68A990BAC0F6FE7 /* Copy Pods Resources */ = {
+		7FC3951DF68A990BAC0F6FE7 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,14 +376,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8FFE359B62588B8EA21B6D01 /* Embed Pods Frameworks */ = {
+		8FFE359B62588B8EA21B6D01 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,14 +391,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A2A53A85648FF0594F1B78E2 /* Check Pods Manifest.lock */ = {
+		A2A53A85648FF0594F1B78E2 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

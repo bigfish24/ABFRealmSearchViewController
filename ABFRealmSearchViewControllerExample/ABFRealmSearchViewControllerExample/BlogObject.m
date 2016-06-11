@@ -49,7 +49,7 @@
 
 #pragma mark - Public Class
 
-+ (void)loadBlogData
++ (void)loadBlogDataWithRealm:(RLMRealm *)realm
 {
     NSString *jsonFilePath = [[NSBundle mainBundle] pathForResource:@"blog" ofType:@"json"];
     
@@ -87,8 +87,8 @@
         
         blog.blogId = index;
         
-        [[RLMRealm defaultRealm] transactionWithBlock:^{
-            [[RLMRealm defaultRealm] addOrUpdateObject:blog];
+        [realm transactionWithBlock:^{
+            [realm addOrUpdateObject:blog];
         }];
         
         index ++;

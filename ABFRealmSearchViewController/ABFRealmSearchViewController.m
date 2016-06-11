@@ -350,6 +350,11 @@ results = _results;
 
 #pragma mark - Private Instance
 
+- (BOOL)isReadOnly
+{
+    return _realmConfiguration.readOnly;
+}
+
 - (void)updateResultsWithPredicate:(NSPredicate *)predicate
 {
     RLMResults *results = [self searchResultsWithEntityName:self.entityName
@@ -359,6 +364,12 @@ results = _results;
                                               sortAscending:self.sortAscending];
     
     if (results) {
+        if ([self isReadOnly]) {
+            _results = results;
+            [self.tableView reloadData];
+            return;
+        }
+        
         __weak typeof(self) weakSelf = self;
         self.token = [results addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
             if (error ||

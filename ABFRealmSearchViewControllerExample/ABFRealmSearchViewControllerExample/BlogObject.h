@@ -22,7 +22,7 @@
 @property (nonatomic, readonly) NSURL *url;
 @property (nonatomic, readonly) NSURL *imageURL;
 
-+ (void)loadBlogData;
++ (void)loadBlogDataWithRealm:(RLMRealm *)realm;
 
 + (NSString *)randomEmoji;
 

@@ -21,7 +21,7 @@ typedef void(^ABFBlock)();
 
 @property (strong, nonatomic) RLMRealmConfiguration *realmConfiguration;
 
-@property (assign, nonatomic) BOOL viewLoaded;
+@property (assign, nonatomic) BOOL viewIsLoaded;
 
 @end
 
@@ -44,7 +44,7 @@ results = _results;
     
     self.definesPresentationContext = YES;
     
-    self.viewLoaded = YES;
+    self.viewIsLoaded = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -373,7 +373,7 @@ results = _results;
         __weak typeof(self) weakSelf = self;
         self.token = [results addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
             if (error ||
-                !weakSelf.viewLoaded) {
+                !weakSelf.viewIsLoaded) {
                 return;
             }
             
@@ -439,8 +439,8 @@ results = _results;
         
         if (self.sortPropertyKey) {
             
-            RLMSortDescriptor *sort = [RLMSortDescriptor sortDescriptorWithProperty:sortPropertyKey
-                                                                          ascending:sortAscending];
+            RLMSortDescriptor *sort = [RLMSortDescriptor sortDescriptorWithKeyPath:sortPropertyKey
+                                                                         ascending:sortAscending];
             
             results = [results sortedResultsUsingDescriptors:@[sort]];
         }

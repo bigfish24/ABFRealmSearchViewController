@@ -24,7 +24,7 @@ public protocol RealmSearchResultsDataSource {
     
     :return: instance of UITableViewCell that displays the object information
     */
-    func searchViewController(controller: RealmSearchViewController, cellForObject object: Object, atIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func searchViewController(_ controller: RealmSearchViewController, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell
 }
 
 /**
@@ -38,7 +38,7 @@ public protocol RealmSearchResultsDelegate {
     :param: anObject             the object to be selected
     :param: indexPath            the indexPath that the object resides at
     */
-    func searchViewController(controller: RealmSearchViewController, willSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath)
+    func searchViewController(_ controller: RealmSearchViewController, willSelectObject anObject: Object, atIndexPath indexPath: IndexPath)
     
     /**
     Called just when an object is selected from the search results table view
@@ -47,33 +47,33 @@ public protocol RealmSearchResultsDelegate {
     :param: selectedObject       the selected object
     :param: indexPath            the indexPath that the object resides at
     */
-    func searchViewController(controller: RealmSearchViewController, didSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath)
+    func searchViewController(_ controller: RealmSearchViewController, didSelectObject anObject: Object, atIndexPath indexPath: IndexPath)
 }
 
 // MARK: RealmSearchViewController
 
 /// The ABFRealmSearchViewController class creates a controller object that inherits UITableViewController and manages the table view within it to support and display text searching against a Realm object.
-public class RealmSearchViewController: UITableViewController, RealmSearchResultsDataSource, RealmSearchResultsDelegate {
+open class RealmSearchViewController: UITableViewController, RealmSearchResultsDataSource, RealmSearchResultsDelegate {
     
     // MARK: Properties
     /// The data source object for the search view controller
-    public var resultsDataSource: RealmSearchResultsDataSource!
+    open var resultsDataSource: RealmSearchResultsDataSource!
     
     /// The delegate for the search view controller
-    public var resultsDelegate: RealmSearchResultsDelegate!
+    open var resultsDelegate: RealmSearchResultsDelegate!
     
     /// The entity (Realm object) name
-    @IBInspectable public var entityName: String? {
+    @IBInspectable open var entityName: String? {
         didSet {
             self.refreshSearchResults()
         }
     }
     
     /// The keyPath on the entity that will be searched against.
-    @IBInspectable public var searchPropertyKeyPath: String? {
+    @IBInspectable open var searchPropertyKeyPath: String? {
         didSet {
             
-            if self.searchPropertyKeyPath?.containsString(".") == false && self.sortPropertyKey == nil {
+            if self.searchPropertyKeyPath?.contains(".") == false && self.sortPropertyKey == nil {
                 
                 self.sortPropertyKey = self.searchPropertyKeyPath
             }
@@ -83,7 +83,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     }
     
     /// The base predicate, used when the search bar text is blank. Can be nil.
-    public var basePredicate: NSPredicate? {
+    open var basePredicate: NSPredicate? {
         didSet {
             self.refreshSearchResults()
         }
@@ -93,7 +93,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     ///
     /// By default this uses searchPropertyKeyPath if it is just a key.
     /// Realm currently doesn't support sorting by key path.
-    @IBInspectable public var sortPropertyKey: String? {
+    @IBInspectable open var sortPropertyKey: String? {
         didSet {
             self.refreshSearchResults()
         }
@@ -102,7 +102,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Defines whether the search results are sorted ascending
     ///
     /// Default is YES
-    @IBInspectable public var sortAscending: Bool = true {
+    @IBInspectable open var sortAscending: Bool = true {
         didSet {
             self.refreshSearchResults()
         }
@@ -111,12 +111,12 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Defines whether the search bar is inserted into the table view header
     ///
     /// Default is YES
-    @IBInspectable public var searchBarInTableView: Bool = true
+    @IBInspectable open var searchBarInTableView: Bool = true
     
     /// Defines whether the text search is case insensitive
     ///
     /// Default is YES
-    @IBInspectable public var caseInsensitiveSearch: Bool = true {
+    @IBInspectable open var caseInsensitiveSearch: Bool = true {
         didSet {
             self.refreshSearchResults()
         }
@@ -125,7 +125,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// Defines whether the text input uses a CONTAINS filter or just BEGINSWITH.
     ///
     /// Default is NO
-    @IBInspectable public var useContainsSearch: Bool = false {
+    @IBInspectable open var useContainsSearch: Bool = false {
         didSet {
             self.refreshSearchResults()
         }
@@ -134,7 +134,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     /// The configuration for the Realm in which the entity resides
     ///
     /// Default is [RLMRealmConfiguration defaultConfiguration]
-    public var realmConfiguration: Realm.Configuration {
+    open var realmConfiguration: Realm.Configuration {
         set {
             self.internalConfiguration = newValue
         }
@@ -148,22 +148,22 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     }
     
     /// The Realm in which the given entity resides in
-    public var realm: Realm {
+    open var realm: Realm {
         return try! Realm(configuration: self.realmConfiguration)
     }
     
     /// The underlying search results
-    public var results: RLMResults?
+    open var results: RLMResults<RLMObject>?
     
     /// The search bar for the controller
-    public var searchBar: UISearchBar {
+    open var searchBar: UISearchBar {
         return self.searchController.searchBar
     }
     
     // MARK: Public Methods
     
     /// Performs the search again with the current text input and base predicate
-    public func refreshSearchResults() {
+    open func refreshSearchResults() {
         let searchString = self.searchController.searchBar.text
         
         let predicate = self.searchPredicate(searchString)
@@ -173,7 +173,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     
     // MARK: Initialization
     
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         resultsDataSource = self
@@ -195,10 +195,10 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     }
     
     // MARK: UIViewController
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
-        self.viewLoaded = true
+        self.viewIsLoaded = true
         
         if self.searchBarInTableView {
             self.tableView.tableHeaderView = self.searchBar
@@ -212,14 +212,14 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         self.definesPresentationContext = true
     }
     
-    override public func viewWillAppear(animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.refreshSearchResults()
     }
     
     // MARK: RealmSearchResultsDataSource
-    public func searchViewController(controller: RealmSearchViewController, cellForObject object: Object, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    open func searchViewController(_ controller: RealmSearchViewController, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         
         print("You need to implement searchViewController(controller:,cellForObject object:,atIndexPath indexPath:)")
         
@@ -227,22 +227,22 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
     }
     
     // MARK: RealmSearchResultsDelegate
-    public func searchViewController(controller: RealmSearchViewController, didSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath) {
+    open func searchViewController(_ controller: RealmSearchViewController, didSelectObject anObject: Object, atIndexPath indexPath: IndexPath) {
         // Subclasses to redeclare
     }
     
-    public func searchViewController(controller: RealmSearchViewController, willSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath) {
+    open func searchViewController(_ controller: RealmSearchViewController, willSelectObject anObject: Object, atIndexPath indexPath: IndexPath) {
         // Subclasses to redeclare
     }
     
     // MARK: Private
-    private var viewLoaded: Bool = false
+    fileprivate var viewIsLoaded: Bool = false
     
-    private var internalConfiguration: Realm.Configuration?
+    fileprivate var internalConfiguration: Realm.Configuration?
     
-    private var token: RLMNotificationToken?
+    fileprivate var token: RLMNotificationToken?
     
-    private lazy var searchController: UISearchController = {
+    fileprivate lazy var searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: nil)
         controller.searchResultsUpdater = self
         controller.dimsBackgroundDuringPresentation = false
@@ -250,17 +250,17 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         return controller
     }()
     
-    private var rlmRealm: RLMRealm {
+    fileprivate var rlmRealm: RLMRealm {
         let configuration = self.toRLMConfiguration(self.realmConfiguration)
         
         return try! RLMRealm(configuration: configuration)
     }
     
-    private var isReadOnly: Bool {
+    fileprivate var isReadOnly: Bool {
         return self.realmConfiguration.readOnly
     }
     
-    private func updateResults(predicate: NSPredicate?) {
+    fileprivate func updateResults(_ predicate: NSPredicate?) {
         if let results = self.searchResults(self.entityName, inRealm: self.rlmRealm, predicate: predicate, sortPropertyKey: self.sortPropertyKey, sortAscending: self.sortAscending) {
             
             guard !isReadOnly else {
@@ -271,7 +271,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
             
             self.token = results.addNotificationBlock({ [weak self] (results, change, error) in
                 if let weakSelf = self {
-                    if (error != nil || !weakSelf.viewLoaded) {
+                    if (error != nil || !weakSelf.viewIsLoaded) {
                         return
                     }
                     
@@ -281,35 +281,35 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
                     
                     // Initial run of the query will pass nil for the change information
                     if change == nil {
-                        tableView.reloadData()
+                        tableView?.reloadData()
                         return
                     }
                     
                     // Query results have changed, so apply them to the UITableView
                     else if let aChange = change {
-                        tableView.beginUpdates()
-                        tableView.deleteRowsAtIndexPaths(aChange.deletionsInSection(0), withRowAnimation: .Automatic)
-                        tableView.insertRowsAtIndexPaths(aChange.insertionsInSection(0), withRowAnimation: .Automatic)
-                        tableView.reloadRowsAtIndexPaths(aChange.modificationsInSection(0), withRowAnimation: .Automatic)
-                        tableView.endUpdates()
+                        tableView?.beginUpdates()
+                        tableView?.deleteRows(at: aChange.deletions(inSection: 0), with: .automatic)
+                        tableView?.insertRows(at: aChange.insertions(inSection: 0), with: .automatic)
+                        tableView?.reloadRows(at: aChange.modifications(inSection: 0), with: .automatic)
+                        tableView?.endUpdates()
                     }
                 }
             })
         }
     }
     
-    private func searchPredicate(text: String?) -> NSPredicate? {
+    fileprivate func searchPredicate(_ text: String?) -> NSPredicate? {
         if (text != "" &&  text != nil) {
             
             let leftExpression = NSExpression(forKeyPath: self.searchPropertyKeyPath!)
             
             let rightExpression = NSExpression(forConstantValue: text)
             
-            let operatorType = self.useContainsSearch ? NSPredicateOperatorType.ContainsPredicateOperatorType : NSPredicateOperatorType.BeginsWithPredicateOperatorType
+            let operatorType = self.useContainsSearch ? NSComparisonPredicate.Operator.contains : NSComparisonPredicate.Operator.beginsWith
             
-            let options = self.caseInsensitiveSearch ? NSComparisonPredicateOptions.CaseInsensitivePredicateOption : NSComparisonPredicateOptions(rawValue: 0)
+            let options = self.caseInsensitiveSearch ? NSComparisonPredicate.Options.caseInsensitive : NSComparisonPredicate.Options(rawValue: 0)
             
-            let filterPredicate = NSComparisonPredicate(leftExpression: leftExpression, rightExpression: rightExpression, modifier: NSComparisonPredicateModifier.DirectPredicateModifier, type: operatorType, options: options)
+            let filterPredicate = NSComparisonPredicate(leftExpression: leftExpression, rightExpression: rightExpression, modifier: NSComparisonPredicate.Modifier.direct, type: operatorType, options: options)
             
             if (self.basePredicate != nil) {
                 
@@ -324,17 +324,21 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         return self.basePredicate
     }
     
-    private func searchResults(entityName: String?, inRealm realm: RLMRealm?, predicate: NSPredicate?, sortPropertyKey: String?, sortAscending: Bool) -> RLMResults? {
+    fileprivate func searchResults(_ entityName: String?, inRealm realm: RLMRealm?, predicate: NSPredicate?, sortPropertyKey: String?, sortAscending: Bool) -> RLMResults<RLMObject>? {
         
         if entityName != nil && realm != nil {
             
-            var results = realm?.objects(entityName, withPredicate: predicate)
+            var results = realm?.allObjects(entityName!)
+            
+            if (predicate != nil ) {
+                results = realm?.objects(entityName!, with: predicate!)
+            }
             
             if (sortPropertyKey != nil) {
                 
-                let sort = RLMSortDescriptor(property: sortPropertyKey!, ascending: sortAscending)
+                let sort = RLMSortDescriptor(keyPath: sortPropertyKey!, ascending: sortAscending)
                 
-                results = results?.sortedResultsUsingDescriptors([sort])
+                results = results?.sortedResults(using: [sort])
             }
             
             return results
@@ -343,7 +347,7 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         return nil
     }
     
-    private func toRLMConfiguration(configuration: Realm.Configuration) -> RLMRealmConfiguration {
+    fileprivate func toRLMConfiguration(_ configuration: Realm.Configuration) -> RLMRealmConfiguration {
         let rlmConfiguration = RLMRealmConfiguration()
         
         if (configuration.fileURL != nil) {
@@ -360,12 +364,12 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
         return rlmConfiguration
     }
     
-    private func runOnMainThread(block: () -> Void) {
-        if NSThread.isMainThread() {
+    fileprivate func runOnMainThread(_ block: @escaping () -> Void) {
+        if Thread.isMainThread {
             block()
         }
         else {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 block()
             })
         }
@@ -374,9 +378,9 @@ public class RealmSearchViewController: UITableViewController, RealmSearchResult
 
 // MARK: UITableViewDelegate
 extension RealmSearchViewController {
-    public override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    open override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if let results = self.results {
-            let baseObject = results.objectAtIndex(UInt(indexPath.row)) as RLMObjectBase
+            let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object
             
             self.resultsDelegate.searchViewController(self, willSelectObject: object, atIndexPath: indexPath)
@@ -387,11 +391,11 @@ extension RealmSearchViewController {
         return nil
     }
     
-    public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if let results = self.results {
-            let baseObject = results.objectAtIndex(UInt(indexPath.row)) as RLMObjectBase
+            let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object
             
             self.resultsDelegate.searchViewController(self, didSelectObject: object, atIndexPath: indexPath)
@@ -401,11 +405,11 @@ extension RealmSearchViewController {
 
 // MARK: UITableViewControllerDataSource
 extension RealmSearchViewController {
-    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    open override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let results = self.results {
             return Int(results.count)
         }
@@ -413,9 +417,9 @@ extension RealmSearchViewController {
         return 0
     }
     
-    public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let results = self.results {
-            let baseObject = results.objectAtIndex(UInt(indexPath.row)) as RLMObjectBase
+            let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object
             
             let cell = self.resultsDataSource.searchViewController(self, cellForObject: object, atIndexPath: indexPath)
@@ -429,7 +433,7 @@ extension RealmSearchViewController {
 
 // MARK: UISearchResultsUpdating
 extension RealmSearchViewController: UISearchResultsUpdating {
-    public func updateSearchResultsForSearchController(searchController: UISearchController) {
+    public func updateSearchResults(for searchController: UISearchController) {
         self.refreshSearchResults()
     }
 }

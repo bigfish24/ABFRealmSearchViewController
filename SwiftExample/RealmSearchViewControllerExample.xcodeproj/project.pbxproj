@@ -13,17 +13,19 @@
 		A0017FBF1BBF58860068764D /* blog.json in Resources */ = {isa = PBXBuildFile; fileRef = A0017FBD1BBF58860068764D /* blog.json */; };
 		A0017FC01BBF58860068764D /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = A0017FBE1BBF58860068764D /* emoji.json */; };
 		A096D1BD1BBF30590012AA26 /* RealmSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096D1BC1BBF30590012AA26 /* RealmSearchViewController.swift */; };
+		A0E4989C744FFF30B633E615 /* Pods_RealmSearchViewControllerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8857700D5C33C62306300B09 /* Pods_RealmSearchViewControllerExample.framework */; };
 		A0EF1AE81BBE01D100DC7122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF1AE71BBE01D100DC7122 /* AppDelegate.swift */; };
 		A0EF1AED1BBE01D100DC7122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF1AEB1BBE01D100DC7122 /* Main.storyboard */; };
 		A0EF1AEF1BBE01D100DC7122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF1AEE1BBE01D100DC7122 /* Assets.xcassets */; };
 		A0EF1AF21BBE01D100DC7122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF1AF01BBE01D100DC7122 /* LaunchScreen.storyboard */; };
 		A0EF1AFA1BBEF22500DC7122 /* BlogObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF1AF91BBEF22500DC7122 /* BlogObject.swift */; };
-		D26CA625DAF93367679BEEDD /* Pods_RealmSearchViewControllerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4ECE17B43A3A26E8F16A77E /* Pods_RealmSearchViewControllerExample.framework */; };
 		F4680B4E1D01DEC30022F04C /* ReadOnlyBlogSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4680B4D1D01DEC30022F04C /* ReadOnlyBlogSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9ADB633D988B014A2B69D3AF /* Pods-RealmSearchViewControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSearchViewControllerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample.release.xcconfig"; sourceTree = "<group>"; };
+		767F08E4BAC218B602D10EF8 /* Pods-RealmSearchViewControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSearchViewControllerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample.release.xcconfig"; sourceTree = "<group>"; };
+		8857700D5C33C62306300B09 /* Pods_RealmSearchViewControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmSearchViewControllerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E7C1E85D0DA7876595BB9F9 /* Pods-RealmSearchViewControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSearchViewControllerExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
 		A0017FB71BBF53490068764D /* BlogSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogSearchViewController.swift; sourceTree = "<group>"; };
 		A0017FB91BBF540C0068764D /* BlogPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewCell.swift; sourceTree = "<group>"; };
 		A0017FBA1BBF540C0068764D /* BlogPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogPostTableViewCell.xib; sourceTree = "<group>"; };
@@ -37,8 +39,6 @@
 		A0EF1AF11BBE01D100DC7122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0EF1AF31BBE01D100DC7122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0EF1AF91BBEF22500DC7122 /* BlogObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogObject.swift; sourceTree = "<group>"; };
-		B4ECE17B43A3A26E8F16A77E /* Pods_RealmSearchViewControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmSearchViewControllerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D609E71EF972B246B0737494 /* Pods-RealmSearchViewControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmSearchViewControllerExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
 		F4680B4D1D01DEC30022F04C /* ReadOnlyBlogSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadOnlyBlogSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,20 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D26CA625DAF93367679BEEDD /* Pods_RealmSearchViewControllerExample.framework in Frameworks */,
+				A0E4989C744FFF30B633E615 /* Pods_RealmSearchViewControllerExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		57AA46690EFEA5348C2D7F00 /* Pods */ = {
+		74AFB0105E1DB17D7C521ECC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D609E71EF972B246B0737494 /* Pods-RealmSearchViewControllerExample.debug.xcconfig */,
-				9ADB633D988B014A2B69D3AF /* Pods-RealmSearchViewControllerExample.release.xcconfig */,
+				9E7C1E85D0DA7876595BB9F9 /* Pods-RealmSearchViewControllerExample.debug.xcconfig */,
+				767F08E4BAC218B602D10EF8 /* Pods-RealmSearchViewControllerExample.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8F5705B2910CA1D8BBEAD567 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8857700D5C33C62306300B09 /* Pods_RealmSearchViewControllerExample.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A096D1BB1BBF30190012AA26 /* RealmSearchViewController */ = {
@@ -77,8 +85,8 @@
 			children = (
 				A0EF1AE61BBE01D100DC7122 /* RealmSearchViewControllerExample */,
 				A0EF1AE51BBE01D100DC7122 /* Products */,
-				57AA46690EFEA5348C2D7F00 /* Pods */,
-				F65D30898BE56CB721C31B0E /* Frameworks */,
+				74AFB0105E1DB17D7C521ECC /* Pods */,
+				8F5705B2910CA1D8BBEAD567 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,14 +118,6 @@
 			path = RealmSearchViewControllerExample;
 			sourceTree = "<group>";
 		};
-		F65D30898BE56CB721C31B0E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B4ECE17B43A3A26E8F16A77E /* Pods_RealmSearchViewControllerExample.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,12 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0EF1AF61BBE01D100DC7122 /* Build configuration list for PBXNativeTarget "RealmSearchViewControllerExample" */;
 			buildPhases = (
-				B75C7CE6AA89841296A49931 /* 📦 Check Pods Manifest.lock */,
+				1AC099151A097656228E7A91 /* [CP] Check Pods Manifest.lock */,
 				A0EF1AE01BBE01D100DC7122 /* Sources */,
 				A0EF1AE11BBE01D100DC7122 /* Frameworks */,
 				A0EF1AE21BBE01D100DC7122 /* Resources */,
-				CE5F6A5999208BD8DE7C2518 /* 📦 Embed Pods Frameworks */,
-				1606E7B97798774115A71933 /* 📦 Copy Pods Resources */,
+				1EA726D48C4A2431EE0F9704 /* [CP] Embed Pods Frameworks */,
+				3BDE1CF5FC883C05A174F554 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -153,6 +153,7 @@
 				TargetAttributes = {
 					A0EF1AE31BBE01D100DC7122 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -191,49 +192,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1606E7B97798774115A71933 /* 📦 Copy Pods Resources */ = {
+		1AC099151A097656228E7A91 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B75C7CE6AA89841296A49931 /* 📦 Check Pods Manifest.lock */ = {
+		1EA726D48C4A2431EE0F9704 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CE5F6A5999208BD8DE7C2518 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BDE1CF5FC883C05A174F554 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmSearchViewControllerExample/Pods-RealmSearchViewControllerExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -359,25 +360,27 @@
 		};
 		A0EF1AF71BBE01D100DC7122 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D609E71EF972B246B0737494 /* Pods-RealmSearchViewControllerExample.debug.xcconfig */;
+			baseConfigurationReference = 9E7C1E85D0DA7876595BB9F9 /* Pods-RealmSearchViewControllerExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RealmSearchViewControllerExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Realm.RealmSearchViewControllerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A0EF1AF81BBE01D100DC7122 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9ADB633D988B014A2B69D3AF /* Pods-RealmSearchViewControllerExample.release.xcconfig */;
+			baseConfigurationReference = 767F08E4BAC218B602D10EF8 /* Pods-RealmSearchViewControllerExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RealmSearchViewControllerExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Realm.RealmSearchViewControllerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

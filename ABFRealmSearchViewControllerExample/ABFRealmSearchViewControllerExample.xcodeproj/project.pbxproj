@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		615CFFBFD8B4BB19EACBCE87 /* libPods-ABFRealmSearchViewControllerExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B080D244A4C50F1A9351211 /* libPods-ABFRealmSearchViewControllerExampleTests.a */; };
-		62AE61877868338E57EB168B /* libPods-ABFRealmSearchViewControllerExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5762913E9F98C1E8520BB40E /* libPods-ABFRealmSearchViewControllerExample.a */; };
 		A02674EC1B7A70F000A85890 /* BlogObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A02674EB1B7A70F000A85890 /* BlogObject.m */; };
 		A02674EE1B7A7BAB00A85890 /* blog.json in Resources */ = {isa = PBXBuildFile; fileRef = A02674ED1B7A7BAB00A85890 /* blog.json */; };
 		A02674F11B7A7FD800A85890 /* BlogSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02674F01B7A7FD800A85890 /* BlogSearchViewController.m */; };
@@ -28,7 +26,9 @@
 		A06AF45D1B1E85760083C8C5 /* RestaurantSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AF4591B1E85760083C8C5 /* RestaurantSearchViewController.m */; };
 		A06AF45E1B1E85760083C8C5 /* RestaurantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AF45B1B1E85760083C8C5 /* RestaurantTableViewController.m */; };
 		A06AF4621B1E85AB0083C8C5 /* ABFRealmSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AF4611B1E85AB0083C8C5 /* ABFRealmSearchViewController.m */; };
+		A5CC681AF94E68211FFA9C3C /* libPods-ABFRealmSearchViewControllerExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E4055A0D597632990C972F /* libPods-ABFRealmSearchViewControllerExampleTests.a */; };
 		F43F607A1D01FEF60096329C /* ReadOnlyBlogSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F43F60791D01FEF60096329C /* ReadOnlyBlogSearchViewController.m */; };
+		F92A48753ED233AFB4F1217A /* libPods-ABFRealmSearchViewControllerExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB22003475CC779C949DE5BA /* libPods-ABFRealmSearchViewControllerExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09871924272801CBF39ACA4E /* Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		0B080D244A4C50F1A9351211 /* libPods-ABFRealmSearchViewControllerExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFRealmSearchViewControllerExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B60293F5294A67C339829CC /* Pods-ABFRealmSearchViewControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample.release.xcconfig"; sourceTree = "<group>"; };
-		5762913E9F98C1E8520BB40E /* libPods-ABFRealmSearchViewControllerExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFRealmSearchViewControllerExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		690A26942168AF76D74CCAC7 /* Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		031F6DD0D5F428BD67E237E6 /* Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		8275E53C7406F65851B22737 /* Pods-ABFRealmSearchViewControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample.release.xcconfig"; sourceTree = "<group>"; };
 		A02674EA1B7A70F000A85890 /* BlogObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogObject.h; sourceTree = "<group>"; };
 		A02674EB1B7A70F000A85890 /* BlogObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogObject.m; sourceTree = "<group>"; };
 		A02674ED1B7A7BAB00A85890 /* blog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blog.json; sourceTree = "<group>"; };
@@ -78,9 +75,12 @@
 		A06AF45B1B1E85760083C8C5 /* RestaurantTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTableViewController.m; sourceTree = "<group>"; };
 		A06AF4601B1E85AB0083C8C5 /* ABFRealmSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFRealmSearchViewController.h; sourceTree = "<group>"; };
 		A06AF4611B1E85AB0083C8C5 /* ABFRealmSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABFRealmSearchViewController.m; sourceTree = "<group>"; };
-		F13C59DFB4B93C3D605FA98F /* Pods-ABFRealmSearchViewControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
+		B9E4055A0D597632990C972F /* libPods-ABFRealmSearchViewControllerExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFRealmSearchViewControllerExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6B02AA8D2197F6A642875AC /* Pods-ABFRealmSearchViewControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
+		EB22003475CC779C949DE5BA /* libPods-ABFRealmSearchViewControllerExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABFRealmSearchViewControllerExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43F60781D01FEF60096329C /* ReadOnlyBlogSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadOnlyBlogSearchViewController.h; sourceTree = "<group>"; };
 		F43F60791D01FEF60096329C /* ReadOnlyBlogSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadOnlyBlogSearchViewController.m; sourceTree = "<group>"; };
+		FE81DC9941BE02F69E663E52 /* Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				A02675021B7ACB9300A85890 /* QuartzCore.framework in Frameworks */,
 				A02675001B7ACB8D00A85890 /* MessageUI.framework in Frameworks */,
 				A02674FE1B7ACB7D00A85890 /* Twitter.framework in Frameworks */,
-				62AE61877868338E57EB168B /* libPods-ABFRealmSearchViewControllerExample.a in Frameworks */,
+				F92A48753ED233AFB4F1217A /* libPods-ABFRealmSearchViewControllerExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				615CFFBFD8B4BB19EACBCE87 /* libPods-ABFRealmSearchViewControllerExampleTests.a in Frameworks */,
+				A5CC681AF94E68211FFA9C3C /* libPods-ABFRealmSearchViewControllerExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,8 +112,8 @@
 				A02675011B7ACB9300A85890 /* QuartzCore.framework */,
 				A02674FF1B7ACB8D00A85890 /* MessageUI.framework */,
 				A02674FD1B7ACB7D00A85890 /* Twitter.framework */,
-				5762913E9F98C1E8520BB40E /* libPods-ABFRealmSearchViewControllerExample.a */,
-				0B080D244A4C50F1A9351211 /* libPods-ABFRealmSearchViewControllerExampleTests.a */,
+				EB22003475CC779C949DE5BA /* libPods-ABFRealmSearchViewControllerExample.a */,
+				B9E4055A0D597632990C972F /* libPods-ABFRealmSearchViewControllerExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -124,8 +124,8 @@
 				A06AF42F1B1E84330083C8C5 /* ABFRealmSearchViewControllerExample */,
 				A06AF4491B1E84330083C8C5 /* ABFRealmSearchViewControllerExampleTests */,
 				A06AF42E1B1E84330083C8C5 /* Products */,
-				E07411884489BE75A7ED5043 /* Pods */,
 				7D7125E5514F7F81AA4670C4 /* Frameworks */,
+				EC070F106740885B1BBAB5BD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,13 +205,13 @@
 			path = ../../ABFRealmSearchViewController;
 			sourceTree = "<group>";
 		};
-		E07411884489BE75A7ED5043 /* Pods */ = {
+		EC070F106740885B1BBAB5BD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F13C59DFB4B93C3D605FA98F /* Pods-ABFRealmSearchViewControllerExample.debug.xcconfig */,
-				1B60293F5294A67C339829CC /* Pods-ABFRealmSearchViewControllerExample.release.xcconfig */,
-				09871924272801CBF39ACA4E /* Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig */,
-				690A26942168AF76D74CCAC7 /* Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig */,
+				D6B02AA8D2197F6A642875AC /* Pods-ABFRealmSearchViewControllerExample.debug.xcconfig */,
+				8275E53C7406F65851B22737 /* Pods-ABFRealmSearchViewControllerExample.release.xcconfig */,
+				FE81DC9941BE02F69E663E52 /* Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig */,
+				031F6DD0D5F428BD67E237E6 /* Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -223,12 +223,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A06AF4501B1E84330083C8C5 /* Build configuration list for PBXNativeTarget "ABFRealmSearchViewControllerExample" */;
 			buildPhases = (
-				3E3D8D5DEBCF448C85373A67 /* 📦 Check Pods Manifest.lock */,
+				04E5855E0ABD8F2A5C99D84D /* [CP] Check Pods Manifest.lock */,
 				A06AF4291B1E84330083C8C5 /* Sources */,
 				A06AF42A1B1E84330083C8C5 /* Frameworks */,
 				A06AF42B1B1E84330083C8C5 /* Resources */,
-				7FC3951DF68A990BAC0F6FE7 /* 📦 Copy Pods Resources */,
-				8FFE359B62588B8EA21B6D01 /* 📦 Embed Pods Frameworks */,
+				9FEB995BF2DBD94DBF41896F /* [CP] Embed Pods Frameworks */,
+				9CB2B36153F259D98708D6FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,12 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A06AF4531B1E84330083C8C5 /* Build configuration list for PBXNativeTarget "ABFRealmSearchViewControllerExampleTests" */;
 			buildPhases = (
-				A2A53A85648FF0594F1B78E2 /* 📦 Check Pods Manifest.lock */,
+				4ED74F3BE4BAC0589DCAFC3B /* [CP] Check Pods Manifest.lock */,
 				A06AF4421B1E84330083C8C5 /* Sources */,
 				A06AF4431B1E84330083C8C5 /* Frameworks */,
 				A06AF4441B1E84330083C8C5 /* Resources */,
-				582CC2433DFA7E27596C171E /* 📦 Copy Pods Resources */,
-				784C59876E2E4AE3C6E0B82E /* 📦 Embed Pods Frameworks */,
+				9599C950F39D0582DD8BDB67 /* [CP] Embed Pods Frameworks */,
+				7FF2E3E1E0CDAB4A052AED2E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,7 +267,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Adam Fish";
 				TargetAttributes = {
 					A06AF42C1B1E84330083C8C5 = {
@@ -322,29 +322,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3E3D8D5DEBCF448C85373A67 /* 📦 Check Pods Manifest.lock */ = {
+		04E5855E0ABD8F2A5C99D84D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		582CC2433DFA7E27596C171E /* 📦 Copy Pods Resources */ = {
+		4ED74F3BE4BAC0589DCAFC3B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7FF2E3E1E0CDAB4A052AED2E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,14 +367,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		784C59876E2E4AE3C6E0B82E /* 📦 Embed Pods Frameworks */ = {
+		9599C950F39D0582DD8BDB67 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,14 +382,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExampleTests/Pods-ABFRealmSearchViewControllerExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7FC3951DF68A990BAC0F6FE7 /* 📦 Copy Pods Resources */ = {
+		9CB2B36153F259D98708D6FE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,34 +397,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8FFE359B62588B8EA21B6D01 /* 📦 Embed Pods Frameworks */ = {
+		9FEB995BF2DBD94DBF41896F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABFRealmSearchViewControllerExample/Pods-ABFRealmSearchViewControllerExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A2A53A85648FF0594F1B78E2 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -483,8 +483,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -528,8 +530,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -555,7 +559,7 @@
 		};
 		A06AF4511B1E84330083C8C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F13C59DFB4B93C3D605FA98F /* Pods-ABFRealmSearchViewControllerExample.debug.xcconfig */;
+			baseConfigurationReference = D6B02AA8D2197F6A642875AC /* Pods-ABFRealmSearchViewControllerExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -569,7 +573,7 @@
 		};
 		A06AF4521B1E84330083C8C5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B60293F5294A67C339829CC /* Pods-ABFRealmSearchViewControllerExample.release.xcconfig */;
+			baseConfigurationReference = 8275E53C7406F65851B22737 /* Pods-ABFRealmSearchViewControllerExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -582,7 +586,7 @@
 		};
 		A06AF4541B1E84330083C8C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 09871924272801CBF39ACA4E /* Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig */;
+			baseConfigurationReference = FE81DC9941BE02F69E663E52 /* Pods-ABFRealmSearchViewControllerExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -600,7 +604,7 @@
 		};
 		A06AF4551B1E84330083C8C5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 690A26942168AF76D74CCAC7 /* Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig */;
+			baseConfigurationReference = 031F6DD0D5F428BD67E237E6 /* Pods-ABFRealmSearchViewControllerExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";

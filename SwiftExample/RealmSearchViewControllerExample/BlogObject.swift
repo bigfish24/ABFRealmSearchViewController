@@ -9,11 +9,11 @@
 import RealmSwift
 
 let emojiArray: [String] = {
-    if let emojiFilePath = NSBundle.mainBundle().pathForResource("emoji", ofType: "json") {
+    if let emojiFilePath = Bundle.main.path(forResource: "emoji", ofType: "json") {
         if let emojiData = NSData(contentsOfFile: emojiFilePath) {
             
             do {
-                let jsonObject = try NSJSONSerialization.JSONObjectWithData(emojiData, options: NSJSONReadingOptions.MutableContainers)
+                let jsonObject = try JSONSerialization.jsonObject(with: emojiData as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
                 
                 if let emojiArray = jsonObject as? [String] {
                     return emojiArray
@@ -34,7 +34,7 @@ class BlogObject: Object {
     dynamic var blogId: Int = 0
     dynamic var title = ""
     dynamic var urlString = ""
-    dynamic var date = NSDate.distantPast()
+    dynamic var date = NSDate.distantPast
     dynamic var content = ""
     dynamic var imageURLString = ""
     dynamic var emoji = ""
@@ -58,15 +58,15 @@ class BlogObject: Object {
     }
     
     // MARK: Type Functions
-    static func loadBlogData(realm: Realm? = try? Realm()) {
-        if let jsonFilePath = NSBundle.mainBundle().pathForResource("blog", ofType: "json") {
+    static func loadBlogData(_ realm: Realm? = try? Realm()) {
+        if let jsonFilePath = Bundle.main.path(forResource: "blog", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: jsonFilePath) {
                 
                 do {
-                    let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)
+                    let jsonObject = try JSONSerialization.jsonObject(with: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
                     
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateStyle = .long
                     
                     var index: Int = 0
                     
@@ -88,7 +88,7 @@ class BlogObject: Object {
                                 }
                                 if let dateString = blogData["date"] as? String {
                                     
-                                    if let date = dateFormatter.dateFromString(dateString) {
+                                    if let date = dateFormatter.date(from: dateString) {
                                         blog.date = date
                                     }
                                 }

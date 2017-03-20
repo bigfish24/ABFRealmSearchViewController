@@ -8,10 +8,10 @@ _[Realm Swift](https://realm.io/docs/swift/latest/) support was added in version
 
 The controller is meant to be subclassed. By default the `resultsDataSource` and `resultsDelegate` protocols are set as `self`, so that the subclass can implement these methods.
 
-####Documentation
+### Documentation
 [Click Here](http://htmlpreview.github.io/?https://raw.githubusercontent.com/bigfish24/ABFRealmSearchViewController/master/Documentation/html/index.html)
 
-####Installation
+### Installation
 `ABFRealmSearchViewController` is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
@@ -24,12 +24,12 @@ pod "ABFRealmSearchViewController"
 pod "RealmSearchViewController"
 ```
 
-####Screenshots
+### Screenshots
 The demo app uses [RealmSFRestaurantData](https://github.com/bigfish24/RealmSFRestaurantData) to search through restaurants in San Francisco.
 
 ![SF Restaurant Search View](/screenshots/restaurantSearch0.png?raw=true "SF Restaurant Search View")
 ![SF Restaurant Search With Text View](/screenshots/restaurantSearch1.png?raw=true "SF Restaurant Search With Text View")
-####Demo
+### Demo
 
 Build and run/test the Example project in Xcode to see `ABFRealmSearchViewController` in action. This project uses CocoaPods. If you don't have [CocoaPods](http://cocoapods.org/) installed, grab it with [sudo] gem install cocoapods.
 
@@ -40,7 +40,7 @@ cd ABFRealmSearchViewController/ABFRealmSearchViewControllerExample
 pod install
 open ABFRealmSearchViewController.xcworkspace
 ```
-#####Requirements
+#### Requirements
 
 * iOS 8+
 * Xcode 6
@@ -52,7 +52,7 @@ cd ABFRealmSearchViewController/SwiftExample
 pod install
 open RealmSearchViewController.xcworkspace
 ```
-#####Requirements
+#### Requirements
 * iOS 8+
 * Xcode 7
 
